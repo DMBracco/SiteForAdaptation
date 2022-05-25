@@ -479,28 +479,30 @@
 				<p class="contact_zag">ПОЛЕЗНЫЕ КОНТАКТЫ</p>
 				<div class="dovn_cont">
 						<a class="con_dol_file" href="..\..\..\@Model.contactFilePath" download style=" border: 2px solid #fff; padding: 13px 26px; border-radius: 14px;">
-							<img src="img/don2.png">
+							<img src="~/img/don2.png">
 							<p>Скачать справочник контактов</p>
 						</a>
 					</div>
 					
-				@foreach (var item in Model.contactItems){
-					<div class="slaid_contact nmg_slaid">
-							<div>
-								<div class="contact_flex">
-									<div class="box">
-										<p class="qr">@Html.Raw(@item.tittle) </p>
-										<div class="dt"><p>@Html.Raw(@item.text)</p></div>
-										<div class="cont_info">
-											<p class="name">@Html.Raw(@item.phoneName)</p>
-											<p class="phhp">@Html.Raw(@item.phoneNumber)</p>
-											<p><a href="mailto:@item.email">@Html.Raw(@item.email)</a></p>
-										</div>
-									</div>
-								</div>
-							</div>
-					</div>
+				<div class="slaid_contact nmg_slaid">
+                @foreach (var item in Model.contactItems){
+					
+				    <div>
+					    <div class="contact_flex">
+						    <div class="box">
+							    <p class="qr">@Html.Raw(@item.tittle) </p>
+							    <div class="dt"><p>@Html.Raw(@item.text)</p></div>
+							    <div class="cont_info">
+								    <p class="name">@Html.Raw(@item.phoneName)</p>
+								    <p class="phhp">@Html.Raw(@item.phoneNumber)</p>
+								    <p><a href="mailto:@item.email">@Html.Raw(@item.email)</a></p>
+							    </div>
+						    </div>
+					    </div>
+				    </div>
+					
 				}
+                </div>
 			</div>
 	</div>
 	<div class="bg_fon2"></div>
@@ -1268,6 +1270,8 @@
 </div>
 
 @section Scripts {
+    <script type="text/javascript" src="~/js/lightzoom.js"></script>
+	<script type="text/javascript" src="~/js/blowup.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
