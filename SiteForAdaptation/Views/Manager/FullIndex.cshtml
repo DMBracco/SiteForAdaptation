@@ -528,23 +528,25 @@
 			<div class="blufon" id="cont">
 				<p class="contact_zag">ПОЛЕЗНЫЕ КОНТАКТЫ</p>
 					<div class="slaid_contact nmg_slaid">
+						<div class="slaid_contact nmg_slaid">
 						@foreach (var item in Model.contactItems){
-							
-									<div>
-										<div class="contact_flex">
-											<div class="box">
-												<p class="qr">@Html.Raw(@item.tittle)</p>
-												<div class="dt"><p>@Html.Raw(@item.text)</p></div>
-												<div class="cont_info">
-													<p class="name">@Html.Raw(@item.phoneName)</p>
-													<p class="phhp">@Html.Raw(@item.phoneNumber)</p>
-													<p><a href="mailto:@item.email">@Html.Raw(@item.email)</a></p>
-												</div>
-											</div>
+					
+							<div>
+								<div class="contact_flex">
+									<div class="box">
+										<p class="qr">@Html.Raw(@item.tittle) </p>
+										<div class="dt"><p>@Html.Raw(@item.text)</p></div>
+										<div class="cont_info">
+											<p class="name">@Html.Raw(@item.phoneName)</p>
+											<p class="phhp">@Html.Raw(@item.phoneNumber)</p>
+											<p><a href="mailto:@item.email">@Html.Raw(@item.email)</a></p>
 										</div>
 									</div>
-							
+								</div>
+							</div>
+					
 						}
+						</div>
 					</div>
 			</div>
 	</div>

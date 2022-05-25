@@ -371,7 +371,7 @@ $(".bask11").click(function() {
 
 
 
-jQuery('.lightzoom').lightzoom({speed: 400, viewTitle: false, imgPadding: 2});
+///jQuery('.lightzoom').lightzoom({speed: 400, viewTitle: false, imgPadding: 2});
 
 
 var video = document.getElementById('vid');
