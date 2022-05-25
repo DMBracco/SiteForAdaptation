@@ -1,7 +1,9 @@
-﻿@model ManagerViewModel
+﻿
+@model ManagerViewModel
 @{
 	ViewData["Title"] = "Руководитель";
 	int indexSlaid = 1;
+	string getHostName = BaseService.GetHostName();
 }
 
 @section Stylesheet {
@@ -21,11 +23,11 @@
 				<img src="~/img/logo.png">
 			</div>
 			<div>
-				<a class="menu scrollto menu_of" href="#toptop" >Выбрать компанию</a>
-				<a class="menu scrollto menu1" >Карта историй</a>
-				<a class="menu scrollto menu2" >Задачи руководителя</a>
-				<a class="menu scrollto menu3" >Полезные контакты</a>
-				<a class="menu_btn" href="#">Вернуться на портал НМГ</a>
+				<a class="menu scrollto menu_of" href="@Model.NavBarLink_1" >@Model.NavBarTitle_1</a>
+					<a class="menu scrollto menu1" href="@Model.NavBarLink_2" >@Model.NavBarTitle_2</a>
+					<a class="menu scrollto menu2" href="@Model.NavBarLink_3" >@Model.NavBarTitle_3</a>
+					<a class="menu scrollto menu3" href="@Model.NavBarLink_4" >@Model.NavBarTitle_4</a>
+					<a class="menu_btn" href="@Model.NavBarLink_5">@Model.NavBarTitle_5</a>
 			</div>
 		</div>
 	</div>
@@ -84,13 +86,303 @@
 		<p class="zag_sec">Карта историй</p>
 		<p class="zag_slaid">Как помочь сотруднику успешно пройти период адаптации?</p>
 
-		@Model.storyMapsName_1
-		@Model.storyMapsNumber_1
-		@Model.storyMapsTittle_1
-		@Model.storyMapsSubtitle_1_1
-		@Model.storyMapsSubtitle_2_1
-		@Model.storyMapsVideoPath_1
-		@Model.storyMapsFilePath_1
+		<div class="smol_slaid">
+			<div>
+				<div class="slaid_sm slaid1" id="slaid1">
+					<span>@Html.Raw(@Model.storyMapsNumber_1)</span>
+					<p>@Html.Raw(@Model.storyMapsName_1)</p>
+				</div>
+			</div>
+			<div>
+				<div class="slaid_sm slaid2" id="slaid2">
+					<span>@Html.Raw(@Model.storyMapsNumber_2)</span>
+					<p>@Html.Raw(@Model.storyMapsName_2)</p>
+				</div>
+			</div>
+			<div>
+				<div class="slaid_sm slaid3" id="slaid3">
+					<span>@Html.Raw(@Model.storyMapsNumber_3)</span>
+					<p>@Html.Raw(@Model.storyMapsName_3)</p>
+				</div>
+			</div>
+			<div>
+				<div class="slaid_sm slaid4" id="slaid4">
+					<span>@Html.Raw(@Model.storyMapsNumber_4)</span>
+					<p>@Html.Raw(@Model.storyMapsName_4)</p>
+				</div>
+			</div>
+			<div>
+				<div class="slaid_sm slaid5" id="slaid5">
+					<span>@Html.Raw(@Model.storyMapsNumber_5)</span>
+					<p>@Html.Raw(@Model.storyMapsName_5)</p>
+				</div>
+			</div>
+			<div>
+				<div class="slaid_sm slaid6" id="slaid6">
+					<span>@Html.Raw(@Model.storyMapsNumber_6)</span>
+					<p>@Html.Raw(@Model.storyMapsName_6)</p>
+				</div>
+			</div>
+			<div>
+				<div class="slaid_sm slaid7" id="slaid7">
+					<span>@Html.Raw(@Model.storyMapsNumber_7)</span>
+					<p>@Html.Raw(@Model.storyMapsName_7)</p>
+				</div>
+			</div>
+			<div>
+				<div class="slaid_sm slaid8" id="slaid8">
+					<span>@Html.Raw(@Model.storyMapsNumber_8)</span>
+					<p>@Html.Raw(@Model.storyMapsName_8)</p>
+				</div>
+			</div>
+			<div>
+				<div class="slaid_sm slaid9" id="slaid9">
+					<span>@Html.Raw(@Model.storyMapsNumber_9)</span>
+					<p>@Html.Raw(@Model.storyMapsName_9)</p>
+				</div>
+			</div>
+			<div>
+				<div class="slaid_sm slaid10" id="slaid10">
+					<span>@Html.Raw(@Model.storyMapsNumber_1)</span>
+					<p>@Html.Raw(@Model.storyMapsName_10)</p>
+				</div>
+			</div>
+		</div>
+	
+		<div class="big_slaid">
+			<div><div class="slaid_flex">
+				<div class="left_text">
+					<p class="zg1">@Html.Raw(@Model.storyMapsTittle_1) </p>
+					<p class="tx1">@Html.Raw(@Model.storyMapsSubtitle_1_1)</p>
+					<p class="tx1">@Html.Raw(@Model.storyMapsSubtitle_2_1)</p>
+					<a class="sl_hr_1 slhh1" >01 послушайте историю</a>
+					<a class="sl_hr_2 fff1">02 изучите информацию</a>
+				</div>
+				<div class="folder1">
+					<div class="flipper1">
+						<div class="front1">
+						  	<iframe id="vid1" src="@Model.storyMapsVideoPath_1"  frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+						  	<img class="bask1" src="~/img/backk.png">
+				  		</div>
+				  		<div class="back1">
+							<a href="#test-popup1" class="open-popup-link"><img class="fontt1" src="~/img/1t.png"></a>
+							<a class="scact1" href="@Model.storyMapsFilePath_1" download>Скачать информацию</a>
+							<img class="baskd1" src="~/img/baskd.png">
+					  	</div>
+					</div>
+				</div>
+			</div></div>
+			<div><div class="slaid_flex">
+				<div class="left_text">
+					<p class="zg1">@Html.Raw(@Model.storyMapsTittle_2) </p>
+					<p class="tx1">@Html.Raw(@Model.storyMapsSubtitle_1_2)</p>
+					<p class="tx1">@Html.Raw(@Model.storyMapsSubtitle_2_2)</p>
+					<a class="sl_hr_1 slhh2" >01 послушайте историю</a>
+					<a class="sl_hr_2 fff2">02 изучите информацию</a>
+				</div>
+				<div class="folder2">
+					<div class="flipper2">
+						<div class="front2">
+						  	<iframe id="vid2" src="@Model.storyMapsVideoPath_2"  frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+						  	<img class="bask2" src="~/img/backk.png">
+				  		</div>
+				  		<div class="back2">
+							<a href="#test-popup2" class="open-popup-link"><img class="fontt2" src="~/img/2t.png"></a>
+							<a class="scact2" href="@Model.storyMapsFilePath_2" download>Скачать информацию</a>
+							<img class="baskd2" src="~/img/baskd.png">
+					  	</div>
+					</div>
+				</div>
+			</div></div>
+
+			<div><div class="slaid_flex">
+				<div class="left_text">
+					<p class="zg1">@Html.Raw(@Model.storyMapsTittle_3) </p>
+					<p class="tx1">@Html.Raw(@Model.storyMapsSubtitle_1_3)</p>
+					<p class="tx1">@Html.Raw(@Model.storyMapsSubtitle_2_3)</p>
+					<a class="sl_hr_1 slhh3" >01 послушайте историю</a>
+					<a class="sl_hr_2 fff3" >02 изучите информацию</a>
+				</div>
+				<div class="folder3">
+					<div class="flipper3">
+						<div class="front3">
+						  	<iframe id="vid3" src="@Model.storyMapsVideoPath_3" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+						  	<img class="bask3" src="~/img/backk.png">
+				  		</div>
+				  		<div class="back3">
+							<a href="#test-popup3" class="open-popup-link"><img class="fontt3" src="~/img/3t.png"></a>
+							<a class="scact3" href="@Model.storyMapsFilePath_3" download>Скачать информацию</a>
+							<img class="baskd3" src="~/img/baskd.png">
+					  	</div>
+					</div>
+				</div>
+			</div></div>
+
+			<div><div class="slaid_flex">
+				<div class="left_text">
+					<p class="zg1">@Html.Raw(@Model.storyMapsTittle_4) </p>
+					<p class="tx1">@Html.Raw(@Model.storyMapsSubtitle_1_4)</p>
+					<p class="tx1">@Html.Raw(@Model.storyMapsSubtitle_2_4)</p>
+					<a class="sl_hr_1 slhh4">01 послушайте историю</a>
+					<a class="sl_hr_2 fff4" >02 изучите информацию</a>
+				</div>
+				<div class="folder4">
+					<div class="flipper4">
+						<div class="front4">
+						  	<iframe id="vid4" src="@Model.storyMapsVideoPath_4" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+						  	<img class="bask4" src="~/img/backk.png">
+				  		</div>
+				  		<div class="back4">
+							<a href="#test-popup4" class="open-popup-link"><img class="fontt4" src="~/img/4t.png"></a>
+							<a class="scact4" href="@Model.storyMapsFilePath_4" download>Скачать информацию</a>
+							<img class="baskd4" src="~/img/baskd.png">
+					  	</div>
+					</div>
+				</div>
+			</div></div>
+
+			<div><div class="slaid_flex">
+				<div class="left_text">
+					<p class="zg1">​​​​​​​@Html.Raw(@Model.storyMapsTittle_5) </p>
+					<p class="tx1">@Html.Raw(@Model.storyMapsSubtitle_1_5)</p>
+					<p class="tx1">@Html.Raw(@Model.storyMapsSubtitle_2_5)</p>
+					<a class="sl_hr_1 slhh5" >01 послушайте историю</a>
+					<a class="sl_hr_2 fff5" >02 изучите информацию</a>
+				</div>
+				<div class="folder5">
+					<div class="flipper5">
+						<div class="front5">
+						  	<iframe id="vid5" src="@Model.storyMapsVideoPath_5" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+						  	<img class="bask5" src="~/img/backk.png">
+				  		</div>
+				  		<div class="back5">
+							<a href="#test-popup5" class="open-popup-link"><img class="fontt5" src="~/img/5t.png"></a>
+							<a class="scact5" href="@Model.storyMapsFilePath_5" download >Скачать информацию</a>
+							<img class="baskd5" src="~/img/baskd.png">
+					  	</div>
+					</div>
+				</div>
+			</div></div>
+
+
+			<div><div class="slaid_flex">
+				<div class="left_text">
+					<p class="zg1">@Html.Raw(@Model.storyMapsTittle_6) </p>
+					<p class="tx1">@Html.Raw(@Model.storyMapsSubtitle_1_6)</p>
+					<p class="tx1">@Html.Raw(@Model.storyMapsSubtitle_2_6)</p>
+					<a class="sl_hr_1 slhh6" >01 послушайте историю</a>
+					<a class="sl_hr_2 fff6" >02 изучите информацию</a>
+				</div>
+				<div class="folder6">
+					<div class="flipper6">
+						<div class="front6">
+						  	<iframe id="vid6" src="@Model.storyMapsVideoPath_6" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+						  	<img class="bask6" src="~/img/backk.png">
+				  		</div>
+				  		<div class="back6">
+							<a href="#test-popup6" class="open-popup-link"><img class="fontt6" src="~/img/6t.png"></a>
+							<a class="scact6" href="@Model.storyMapsFilePath_6" download>Скачать информацию</a>
+							<img class="baskd6" src="~/img/baskd.png">
+					  	</div>
+					</div>
+				</div>
+			</div></div>
+
+			<div><div class="slaid_flex">
+				<div class="left_text">
+					<p class="zg1">@Html.Raw(@Model.storyMapsTittle_7) </p>
+					<p class="tx1">@Html.Raw(@Model.storyMapsSubtitle_1_7)</p>
+					<p class="tx1">@Html.Raw(@Model.storyMapsSubtitle_2_7)</p>
+					<a class="sl_hr_1 slhh7" >01 послушайте историю</a>
+					<a class="sl_hr_2 fff7" >02 изучите информацию</a>
+				</div>
+				<div class="folder7">
+					<div class="flipper7">
+						<div class="front7">
+						  	<iframe id="vid7" src="@Model.storyMapsVideoPath_7"  frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+						  	<img class="bask7" src="~/img/backk.png">
+				  		</div>
+				  		<div class="back7">
+							<a href="#test-popup7" class="open-popup-link"><img class="fontt7" src="~/img/7t.png"></a>
+							<a class="scact7" href="@Model.storyMapsFilePath_7" download>Скачать информацию</a>
+							<img class="baskd7" src="~/img/baskd.png">
+					  	</div>
+					</div>
+				</div>
+			</div></div>
+
+			<div><div class="slaid_flex">
+				<div class="left_text">
+					<p class="zg1">@Html.Raw(@Model.storyMapsTittle_8) </p>
+					<p class="tx1">@Html.Raw(@Model.storyMapsSubtitle_1_8)</p>
+					<p class="tx1">@Html.Raw(@Model.storyMapsSubtitle_2_8)</p>
+					<a class="sl_hr_1 slhh8" >01 послушайте историю</a>
+					<a class="sl_hr_2 fff8" >02 изучите информацию</a>
+				</div>
+				<div class="folder8">
+					<div class="flipper8">
+						<div class="front8">
+						  	<iframe src="@Model.storyMapsVideoPath_8" id="vid8" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+						  	<img class="bask8" src="~/img/backk.png">
+				  		</div>
+				  		<div class="back8">
+							<a href="#test-popup8" class="open-popup-link"><img class="fontt8" src="~/img/8t.png"></a>
+							<a class="scact8" href="@Model.storyMapsFilePath_8" download>Скачать информацию</a>
+							<img class="baskd8" src="~/img/baskd.png">
+					  	</div>
+					</div>
+				</div>
+			</div></div>
+
+			<div><div class="slaid_flex">
+				<div class="left_text">
+					<p class="zg1">​​​​​​​@Html.Raw(@Model.storyMapsTittle_9) </p>
+					<p class="tx1">@Html.Raw(@Model.storyMapsSubtitle_1_9)</p>
+					<p class="tx1">@Html.Raw(@Model.storyMapsSubtitle_2_9)</p>
+					<a class="sl_hr_1 slhh9" >01 послушайте историю</a>
+					<a class="sl_hr_2 fff9" >02 изучите информацию</a>
+				</div>
+				<div class="folder9">
+					<div class="flipper9">
+						<div class="front9">
+						  	<iframe src="@Model.storyMapsVideoPath_9" id="vid9" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+						  	<img class="bask9" src="~/img/backk.png">
+				  		</div>
+				  		<div class="back9">
+							<a href="#test-popup9" class="open-popup-link"><img class="fontt9" src="~/img/9t.png"></a>
+							<a class="scact9" href="@Model.storyMapsFilePath_9" download>Скачать информацию</a>
+							<img class="baskd9" src="~/img/baskd.png">
+					  	</div>
+					</div>
+				</div>
+			</div></div>
+
+			<div><div class="slaid_flex">
+				<div class="left_text">
+					<p class="zg1">@Html.Raw(@Model.storyMapsTittle_10) </p>
+					<p class="tx1">@Html.Raw(@Model.storyMapsSubtitle_1_10)</p>
+					<p class="tx1">@Html.Raw(@Model.storyMapsSubtitle_2_10)</p>
+					<a class="sl_hr_1 slhh11" >01 послушайте историю</a>
+					<a class="sl_hr_2 fff11" >02 изучите информацию</a>
+				</div>
+				<div class="folder11">
+					<div class="flipper11">
+						<div class="front11">
+						  	<iframe src="@Model.storyMapsVideoPath_10" id="vid11" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+						  	<img class="bask11" src="~/img/backk.png">
+				  		</div>
+				  		<div class="back11">
+							<a href="#test-popup10" class="open-popup-link"><img class="fontt11" src="~/img/10t.png"></a>
+							<a class="scact11" href="@Model.storyMapsFilePath_10" download>Скачать информацию</a>
+							<img class="baskd11" src="~/img/baskd.png">
+					  	</div>
+					</div>
+				</div>
+			</div></div>
+
+			
+		</div>
+		
 	</div>
 
 </section>
@@ -100,13 +392,13 @@
 <section >
 	<div class="content">
 		<div class="bg_white">
-			<p class="wh_zag">@Model.userTaskTittle</p>
-			<p class="text_wh_bold">@Model.userTaskSubtittle</p>
-			<p class="text_wh" style="margin-bottom: 0px;">@Model.userTaskText <a href="#cont" class="scrollto">«Полезные контакты»</a></p>
+			<p class="wh_zag">@Html.Raw(@Model.userTaskTittle)</p>
+			<p class="text_wh_bold">@Html.Raw(@Model.userTaskSubtittle)</p>
+			<p class="text_wh" style="margin-bottom: 0px;">@Html.Raw(@Model.userTaskText) <!--<a href="#cont" class="scrollto">«Полезные контакты»</a>--></p>
 
 			<div class="flex_wh">
 				@foreach (var item in Model.userTaskItems){
-					<div><div class="ttd"><p>@item.name</p></div></div>
+					<div><div class="ttd"><p>@Html.Raw(@item.name)</p></div></div>
 				}
 			</div>
 
@@ -122,27 +414,39 @@
 			<div class="slaid">
 				@foreach (var item in Model.userTaskItems){
 					<div>
-						<p class="sla_zag">@item.tittle</p>
+						<p class="sla_zag">@Html.Raw(@item.tittle)</p>
 
-						<div class="l_s_m_t">
-							@foreach (var parag in item.paragraphs){
-							<div class="dots">
-								<p class="dots_zag">@parag.tittle</p>
-								<p class="dots_text">@parag.subtittle</p>
+							@{
+								int paragCount = item.paragraphs.Count();
+								string raspClass = "r_s_m_t";
+
+								foreach (var parag in item.paragraphs){
+									if(paragCount%2 == 0)
+									{
+										raspClass = "l_s_m_t";
+									}
+									paragCount = paragCount - 1;
+									<div class="@raspClass">
+								<div class="restorflex">
+										<div class="dots">
+											<p class="dots_zag">@Html.Raw(parag.tittle)</p>
+											<p class="dots_text">@Html.Raw(parag.subtittle)</p>
+										</div>
+										<div class="donload">
+											@foreach (var file in parag.files){
+												<a href="..\..\..\@file.path" download><img src="~/img/don.png">
+												<p style="margin-top: 10px;">@Html.Raw(file.name)</p></a>
+											}
+											@foreach (var link in parag.links){
+												<a href="@getHostName/@link.link">
+													@Html.Raw(link.icon) @link.name
+												</a>
+											}
+										</div>
+								</div>
+							
 							</div>
-							<div class="donload">
-								@foreach (var file in parag.files){
-									<a href="..\..\..\@file.path" download><img src="~/img/don.png">
-									<p style="margin-top: 10px;">@file.name</p></a>
-								}
-								@foreach (var link in parag.links){
-									@link.link
-									@link.name
-									@link.icon
-								}
-							</div>
-							}
-						</div>
+							}}
 					</div>
 				}
 			</div>
@@ -162,8 +466,8 @@
 					<div class="dot_flex_punt">
 						<div><img src="~/img/1.png"></div>
 						<div>
-							<p class="fix_zag">@Model.Tittle_1</p>
-							<p class="fix_text">@Model.Subtittle_1</p>
+							<p class="fix_zag">@Html.Raw(@Model.Tittle_1)</p>
+							<p class="fix_text">@Html.Raw(@Model.Subtittle_1)</p>
 						</div>
 					</div>
 				</div>
@@ -172,8 +476,8 @@
 					<div class="dot_flex_punt">
 						<div><img src="~/img/2.png"></div>
 						<div>
-							<p class="fix_zag">@Model.Tittle_2</p>
-							<p class="fix_text">@Model.Subtittle_2</p>
+							<p class="fix_zag">@Html.Raw(@Model.Tittle_2)</p>
+							<p class="fix_text">@Html.Raw(@Model.Subtittle_2)</p>
 							
 						</div>
 					</div>
@@ -183,8 +487,8 @@
 					<div class="dot_flex_punt">
 						<div><img src="~/img/3.png"></div>
 						<div>
-							<p class="fix_zag">@Model.Tittle_3</p>
-							<p class="fix_text">@Model.Subtittle_3</p>
+							<p class="fix_zag">@Html.Raw(@Model.Tittle_3)</p>
+							<p class="fix_text">@Html.Raw(@Model.Subtittle_3)</p>
 						</div>
 					</div>
 				</div>
@@ -193,8 +497,8 @@
 					<div class="dot_flex_punt">
 						<div><img src="~/img/4.png"></div>
 						<div>
-							<p class="fix_zag">@Model.Tittle_4</p>
-							<p class="fix_text">@Model.Subtittle_4</p>
+							<p class="fix_zag">@Html.Raw(@Model.Tittle_4)</p>
+							<p class="fix_text">@Html.Raw(@Model.Subtittle_4)</p>
 						</div>
 					</div>
 				</div>
@@ -203,8 +507,8 @@
 					<div class="dot_flex_punt">
 						<div><img src="~/img/5.png"></div>
 						<div>
-							<p class="fix_zag">@Model.Tittle_5</p>
-							<p class="fix_text">@Model.Subtittle_5</p>
+							<p class="fix_zag">@Html.Raw(@Model.Tittle_5)</p>
+							<p class="fix_text">@Html.Raw(@Model.Subtittle_5)</p>
 						</div>
 					</div>
 				</div>
@@ -223,24 +527,25 @@
 	<div class="content">
 			<div class="blufon" id="cont">
 				<p class="contact_zag">ПОЛЕЗНЫЕ КОНТАКТЫ</p>
-					
-				@foreach (var item in Model.contactItems){
 					<div class="slaid_contact nmg_slaid">
-							<div>
-								<div class="contact_flex">
-									<div class="box">
-										<p class="qr">@item.tittle </p>
-										<div class="dt"><p>@item.text</p></div>
-										<div class="cont_info">
-											<p class="name">@item.phoneName</p>
-											<p class="phhp">@item.phoneNumber</p>
-											<p><a href="mailto:@item.email">@item.email</a></p>
+						@foreach (var item in Model.contactItems){
+							
+									<div>
+										<div class="contact_flex">
+											<div class="box">
+												<p class="qr">@Html.Raw(@item.tittle)</p>
+												<div class="dt"><p>@Html.Raw(@item.text)</p></div>
+												<div class="cont_info">
+													<p class="name">@Html.Raw(@item.phoneName)</p>
+													<p class="phhp">@Html.Raw(@item.phoneNumber)</p>
+													<p><a href="mailto:@item.email">@Html.Raw(@item.email)</a></p>
+												</div>
+											</div>
 										</div>
 									</div>
-								</div>
-							</div>
+							
+						}
 					</div>
-				}
 			</div>
 	</div>
 	<div class="bg_fon2"></div>
@@ -250,7 +555,8 @@
 
 
 
-@*<div id="test-popup0" class="white-popup mfp-hide">
+
+<div id="test-popup0" class="white-popup mfp-hide">
   <img  src="~/img/0t.png">
 </div>
 <div id="test-popup1" class="white-popup mfp-hide">
@@ -482,7 +788,7 @@
 </div>
 <div id="test-popup10" class="white-popup mfp-hide">
   <img  src="~/img/10t.png">
-</div>*@
+</div>
 
 @section Scripts {
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -492,7 +798,8 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/sifter/0.5.4/sifter.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.13.3/js/selectize.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js" integrity="sha512-IsNh5E3eYy3tr/JiX2Yx4vsCujtkhwl7SLqgnwLNgf04Hrt9BT9SXlLlZlWx+OK4ndzAoALhsMNcCmkggjZB1w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-	@*<script src="~/js/js_ruk.js"></script>*@
+	
+	<script src="https://player.vimeo.com/api/player.js"></script>
+	<script src="~/js/js_ruk.js"></script>
 
 }

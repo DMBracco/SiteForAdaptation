@@ -68,7 +68,7 @@ namespace SiteForAdaptation.Controllers
                 .FirstOrDefault(d => d.CompanyId == companyId);
 
             var userTask = new UserTask();
-            userTask = data.UserTasks.FirstOrDefault(d => d.UserType?.Tittle == userTypesTittle);
+            userTask = data.UserTasks.FirstOrDefault(d => d.UserTypeId == userType.Id);
 
             //storyMaps
             var storyMapsArray = new StoryMap[10];
@@ -298,7 +298,7 @@ namespace SiteForAdaptation.Controllers
             ///Contact
             if(null != data.Contact?.Items)
             {
-                foreach (var item in data.Contact?.Items)
+                foreach (var item in data.Contact?.Items.Where(c => c.UserTypeId == userType.Id))
                 {
                     var contactItem = new ContactItemViewModel
                     {

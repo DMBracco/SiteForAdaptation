@@ -8,6 +8,7 @@ using SiteForAdaptation.Data.Entities;
 using SiteForAdaptation.Models;
 using System;
 using System.Linq;
+using System.Web;
 
 namespace SiteForAdaptation.Controllers
 {
@@ -63,7 +64,7 @@ namespace SiteForAdaptation.Controllers
                 .FirstOrDefault(d => d.Tittle == userTypesTittle);
 
             var userTask = new UserTask();
-            userTask = data.UserTasks.FirstOrDefault(d => d.UserType.Tittle == userTypesTittle);
+            userTask = data.UserTasks?.FirstOrDefault();
 
             //storyMaps
             var storyMapsArray = new StoryMap[10];
@@ -258,7 +259,7 @@ namespace SiteForAdaptation.Controllers
             ///Contact
             if(null != data.Contact?.Items)
             {
-                foreach (var item in data.Contact.Items)
+                foreach (var item in data.Contact.Items.Where(c => c.UserTypeId == userType.Id))
                 {
                     var contactItem = new ContactItemViewModel
                     {

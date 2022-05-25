@@ -2,6 +2,7 @@
 @{
 	ViewData["Title"] = "Сотрудник";
 	int indexSlaid = 1;
+    string getHostName = BaseService.GetHostName();
 }
 
 @section Stylesheet {
@@ -56,12 +57,8 @@
 		<p class="zag_top_video">ПОСМОТРИТЕ ВИДЕО<span>и узнайте, что вас ждет на курсе</span></p>
 
 		<div class="video">
-			<!--<img src="~/img/video.png">-->
 			<div class="flipper">
 				<div class="front">
-					 <!--<video id="vid"  controls poster="~/img/video.png">
-					    <source src="~/img/vid.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
-					  </video>-->
 					  <iframe id="vid" src="@Model.openingVideoPath" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
 
 					  <img class="bask" src="~/img/backk.png">
@@ -82,13 +79,328 @@
 		<p class="zag_sec">Карта историй</p>
 		<p class="zag_slaid">Познакомься с историями нашей команды</p>
 
-		@Model.storyMapsName_1
-		@Model.storyMapsNumber_1
-		@Model.storyMapsTittle_1
-		@Model.storyMapsSubtitle_1_1
-		@Model.storyMapsSubtitle_2_1
-		@Model.storyMapsVideoPath_1
-		@Model.storyMapsFilePath_1
+		<div class="smol_slaid">
+			<div>
+				<div class="slaid_sm sslaid1" id="">
+					<span>@Html.Raw(@Model.storyMapsNumber_1)</span>
+					<p>@Html.Raw(@Model.storyMapsName_1)</p>
+				</div>
+			</div>
+			<div>
+				<div class="slaid_sm sslaid2" id="slaid2">
+					<span>@Html.Raw(@Model.storyMapsNumber_2)</span>
+					<p>@Html.Raw(@Model.storyMapsName_2)</p>
+				</div>
+			</div>
+			<div>
+				<div class="slaid_sm sslaid3" id="slaid3">
+					<span>@Html.Raw(@Model.storyMapsNumber_3)</span>
+					<p>@Html.Raw(@Model.storyMapsName_3)</p>
+				</div>
+			</div>
+			<div>
+				<div class="slaid_sm sslaid4" id="slaid4">
+					<span>@Html.Raw(@Model.storyMapsNumber_4)</span>
+					<p>@Html.Raw(@Model.storyMapsName_4)</p>
+				</div>
+			</div>
+			<div>
+				<div class="slaid_sm sslaid5" id="slaid5">
+					<span>@Html.Raw(@Model.storyMapsNumber_5)</span>
+					<p>@Html.Raw(@Model.storyMapsName_5)</p>
+				</div>
+			</div>
+			<div>
+				<div class="slaid_sm sslaid6" id="slaid6">
+					<span>@Html.Raw(@Model.storyMapsNumber_6)</span>
+					<p>@Html.Raw(@Model.storyMapsName_6)</p>
+				</div>
+			</div>
+			<div>
+				<div class="slaid_sm sslaid7" id="slaid7">
+					<span>@Html.Raw(@Model.storyMapsNumber_7)</span>
+					<p>@Html.Raw(@Model.storyMapsName_7)</p>
+				</div>
+			</div>
+			<div>
+				<div class="slaid_sm sslaid8" id="slaid8">
+					<span>@Html.Raw(@Model.storyMapsNumber_8)</span>
+					<p>@Html.Raw(@Model.storyMapsName_8)</p>
+				</div>
+			</div>
+			<div>
+				<div class="slaid_sm sslaid9" id="slaid9">
+					<span>@Html.Raw(@Model.storyMapsNumber_9)</span>
+					<p>@Html.Raw(@Model.storyMapsName_9)</p>
+				</div>
+			</div>
+			<div>
+				<div class="slaid_sm sslaid10" >
+					<span>@Html.Raw(@Model.storyMapsNumber_10)</span>
+					<p>@Html.Raw(@Model.storyMapsName_10)</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="big_slaid">
+			<div><div class="slaid_flex">
+				<div class="left_text">
+					<p class="zg1">@Html.Raw(@Model.storyMapsTittle_1)</p>
+					<p class="tx1" style="margin-top: 50px;">@Html.Raw(@Model.storyMapsSubtitle_1_1)</p>
+					<p class="tx1">@Html.Raw(@Model.storyMapsSubtitle_2_1)</p>
+
+					<a class="sl_hr_1 slhh1" >01 послушайте историю</a>
+					<a class="sl_hr_2 fff1">02 изучите информацию</a>
+				</div>
+				<div class="folder1">
+					<div class="flipper1">
+						<div class="front1">
+							
+						  	<iframe src="@Model.storyMapsVideoPath_1" id="vid1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+
+						  	<img class="bask1" src="img/backk.png">
+				  		</div>
+				  		<div class="back1">
+							<a href="#test-popup1" class="open-popup-link" id="serts"><img class="fontt1" src="img_sotr/1.png"></a>
+							<a class="scact1" href="@Model.storyMapsFilePath_1" download id="sertss">Скачать информацию</a>
+							<img class="baskd1" src="img/baskd.png">
+					  	</div>
+					</div>
+				</div>
+			</div></div>
+			<div><div class="slaid_flex">
+				<div class="left_text">
+					<p class="zg1">@Html.Raw(@Model.storyMapsTittle_2)</p>
+					<p class="tx1" style="margin-top: 50px;">@Html.Raw(@Model.storyMapsSubtitle_1_2)</p>
+					<p class="tx1">@Html.Raw(@Model.storyMapsSubtitle_2_2)</p>
+
+					<a class="sl_hr_1 slhh2" >01 послушайте историю</a>
+					<a class="sl_hr_2 fff2">02 изучите информацию</a>
+				</div>
+				<div class="folder2">
+					<div class="flipper2">
+						<div class="front2">
+							<iframe src="@Model.storyMapsVideoPath_2" id="vid2" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+
+						  	<img class="bask2" src="img/backk.png">
+				  		</div>
+				  		<div class="back2">
+							<a href="#test-popup2" class="open-popup-link"><img class="fontt2" src="img_sotr/2.png"></a>
+							<a class="scact2" href="@Model.storyMapsFilePath_2" download>Скачать информацию</a>
+							<img class="baskd2" src="img/baskd.png">
+					  	</div>
+					</div>
+				</div>
+			</div></div>
+
+			<div><div class="slaid_flex">
+				<div class="left_text">
+					<p class="zg1">@Html.Raw(@Model.storyMapsTittle_3)</p>
+					<p class="tx1" style="margin-top: 50px;">@Html.Raw(@Model.storyMapsSubtitle_1_3)</p>
+					<p class="tx1">@Html.Raw(@Model.storyMapsSubtitle_2_3)</p>
+
+					<a class="sl_hr_1 slhh3" >01 послушайте историю</a>
+					<a class="sl_hr_2 fff3" >02 изучите информацию</a>
+				</div>
+				<div class="folder3">
+					<div class="flipper3">
+						<div class="front3">
+							
+						  	<iframe src="@Model.storyMapsVideoPath_3" id="vid3" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+
+						  	<img class="bask3" src="img/backk.png">
+				  		</div>
+				  		<div class="back3">
+							<a href="#test-popup3" class="open-popup-link"><img class="fontt3" src="img_sotr/3.png"></a>
+							<a class="scact3" href="@Model.storyMapsFilePath_3" download>Скачать информацию</a>
+							<img class="baskd3" src="img/baskd.png">
+					  	</div>
+					</div>
+				</div>
+			</div></div>
+
+			<div><div class="slaid_flex">
+				<div class="left_text">
+					<p class="zg1">@Html.Raw(@Model.storyMapsTittle_4)</p>
+					<p class="tx1" style="margin-top: 50px;">@Html.Raw(@Model.storyMapsSubtitle_1_4)</p>
+					<p class="tx1">@Html.Raw(@Model.storyMapsSubtitle_2_4)</p>
+
+					<a class="sl_hr_1 slhh4">01 послушайте историю</a>
+					<a class="sl_hr_2 fff4" >02 изучите информацию</a>
+				</div>
+				<div class="folder4">
+					<div class="flipper4">
+						<div class="front4">
+							 
+						  	<iframe src="@Model.storyMapsVideoPath_4" id="vid4" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+
+						  	<img class="bask4" src="img/backk.png">
+				  		</div>
+				  		<div class="back4">
+							<a href="#test-popup4" class="open-popup-link" id="sert"><img class="fontt4" src="img_sotr/4.png"></a>
+							<a class="scact4" href="@Model.storyMapsFilePath_4" download id="sertt">Скачать информацию</a>
+							<img class="baskd4" src="img/baskd.png">
+					  	</div>
+					</div>
+				</div>
+			</div></div>
+
+			<div><div class="slaid_flex">
+				<div class="left_text">
+					<p class="zg1">@Html.Raw(@Model.storyMapsTittle_5)</p>
+					<p class="tx1" style="margin-top: 50px;">@Html.Raw(@Model.storyMapsSubtitle_1_5)</p>
+					<p class="tx1">@Html.Raw(@Model.storyMapsSubtitle_2_5)</p>
+
+					<a class="sl_hr_1 slhh5" >01 послушайте историю</a>
+					<a class="sl_hr_2 fff5" >02 изучите информацию</a>
+				</div>
+				<div class="folder5">
+					<div class="flipper5">
+						<div class="front5">
+							
+						  	<iframe src="h@Model.storyMapsVideoPath_5" id="vid5"  frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+
+						  	<img class="bask5" src="img/backk.png">
+				  		</div>
+				  		<div class="back5">
+							<a href="#test-popup5" class="open-popup-link"><img class="fontt5" src="img_sotr/5.png"></a>
+							<a class="scact5" href="@Model.storyMapsFilePath_5" download >Скачать информацию</a>
+							<img class="baskd5" src="img/baskd.png">
+					  	</div>
+					</div>
+				</div>
+			</div></div>
+
+
+			<div><div class="slaid_flex">
+				<div class="left_text">
+					<p class="zg1">@Html.Raw(@Model.storyMapsTittle_6)</p>
+					<p class="tx1" style="margin-top: 50px;">@Html.Raw(@Model.storyMapsSubtitle_1_6)</p>
+					<p class="tx1">@Html.Raw(@Model.storyMapsSubtitle_2_6)</p>
+
+					<a class="sl_hr_1 slhh6" >01 послушайте историю</a>
+					<a class="sl_hr_2 fff6" >02 изучите информацию</a>
+				</div>
+				<div class="folder6">
+					<div class="flipper6">
+						<div class="front6">
+							 
+						  	<iframe src="@Model.storyMapsVideoPath_6" id="vid6" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+
+						  	<img class="bask6" src="img/backk.png">
+				  		</div>
+				  		<div class="back6">
+							<a href="#test-popup6" class="open-popup-link"><img class="fontt6" src="img_sotr/6.png"></a>
+							<a class="scact6" href="@Model.storyMapsFilePath_6" download>Скачать информацию</a>
+							<img class="baskd6" src="img/baskd.png">
+					  	</div>
+					</div>
+				</div>
+			</div></div>
+
+			<div><div class="slaid_flex">
+				<div class="left_text">
+					<p class="zg1">@Html.Raw(@Model.storyMapsTittle_7)</p>
+					<p class="tx1" style="margin-top: 50px;">@Html.Raw(@Model.storyMapsSubtitle_1_7)</p>
+					<p class="tx1">@Html.Raw(@Model.storyMapsSubtitle_2_7)</p>
+
+					<a class="sl_hr_1 slhh7" >01 послушайте историю</a>
+					<a class="sl_hr_2 fff7" >02 изучите информацию</a>
+				</div>
+				<div class="folder7">
+					<div class="flipper7">
+						<div class="front7">
+							
+						  	<iframe src="@Model.storyMapsVideoPath_7" id="vid7" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+
+						  	<img class="bask7" src="img/backk.png">
+				  		</div>
+				  		<div class="back7">
+							<a href="#test-popup7" class="open-popup-link" id="sertnmg"><img class="fontt7" src="img_sotr/7.png"></a>
+							<a class="scact7" id="sertnmga" href="@Model.storyMapsFilePath_7" download>Скачать информацию</a>
+							<img class="baskd7" src="img/baskd.png">
+					  	</div>
+					</div>
+				</div>
+			</div></div>
+
+			<div><div class="slaid_flex">
+				<div class="left_text">
+					<p class="zg1">@Html.Raw(@Model.storyMapsTittle_8)</p>
+					<p class="tx1" style="margin-top: 50px;">@Html.Raw(@Model.storyMapsSubtitle_1_8)</p>
+					<p class="tx1">@Html.Raw(@Model.storyMapsSubtitle_2_8)</p>
+
+					<a class="sl_hr_1 slhh8" >01 послушайте историю</a>
+					<a class="sl_hr_2 fff8" >02 изучите информацию</a>
+				</div>
+				<div class="folder8">
+					<div class="flipper8">
+						<div class="front8">
+							 
+						  	<iframe src="@Model.storyMapsVideoPath_8" id="vid8" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+
+						  	<img class="bask8" src="img/backk.png">
+				  		</div>
+				  		<div class="back8">
+							<a href="#test-popup8" class="open-popup-link" id="pop8"><img class="fontt8" src="img_sotr/8.png"></a>
+							<a class="scact8" href="@Model.storyMapsFilePath_8" download id="pop8s">Скачать информацию</a>
+							<img class="baskd8" src="img/baskd.png">
+					  	</div>
+					</div>
+				</div>
+			</div></div>
+
+			<div><div class="slaid_flex">
+				<div class="left_text">
+					<p class="zg1">@Html.Raw(@Model.storyMapsTittle_9)</p>
+					<p class="tx1" style="margin-top: 50px;">@Html.Raw(@Model.storyMapsSubtitle_1_9)</p>
+					<p class="tx1">@Html.Raw(@Model.storyMapsSubtitle_2_9)</p>
+
+					<a class="sl_hr_1 slhh9" >01 послушайте историю</a>
+					<a class="sl_hr_2 fff9" >02 изучите информацию</a>
+				</div>
+				<div class="folder9">
+					<div class="flipper9">
+						<div class="front9">
+							 <iframe src="@Model.storyMapsVideoPath_9" id="vid9" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+
+						  	<img class="bask9" src="img/backk.png">
+				  		</div>
+				  		<div class="back9">
+							<a href="#test-popup9" class="open-popup-link"><img class="fontt9" src="img_sotr/9.png"></a>
+							<a class="scact9" href="@Model.storyMapsFilePath_9" download>Скачать информацию</a>
+							<img class="baskd9" src="img/baskd.png">
+					  	</div>
+					</div>
+				</div>
+			</div></div>
+
+			<div><div class="slaid_flex">
+				<div class="left_text">
+					<p class="zg1">@Html.Raw(@Model.storyMapsTittle_10)</p>
+					<p class="tx1" style="margin-top: 50px;">@Html.Raw(@Model.storyMapsSubtitle_1_10)</p>
+					<p class="tx1">@Html.Raw(@Model.storyMapsSubtitle_2_10)</p>
+
+					<a class="sl_hr_1 slhh11" >01 послушайте историю</a>
+					<a class="sl_hr_2 fff11" >02 изучите информацию</a>
+				</div>
+				<div class="folder11">
+					<div class="flipper11">
+						<div class="front11">
+							 
+						  	<iframe src="@Model.storyMapsVideoPath_10" id="vid11" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+
+						  	<img class="bask11" src="img/backk.png">
+				  		</div>
+				  		<div class="back11">
+							<a href="#test-popup10" class="open-popup-link"><img class="fontt11" src="img_sotr/10.png"></a>
+							<a class="scact11" href="@Model.storyMapsFilePath_10" download>Скачать информацию</a>
+							<img class="baskd11" src="img/baskd.png">
+					  	</div>
+					</div>
+				</div>
+			</div></div>
+		</div>
 
 	</div>
 
@@ -99,13 +411,13 @@
 <section class="otvety">
 	<div class="content">
 		<div class="bg_white">
-			<p class="wh_zag">@Model.userTaskTittle</p>
-			<p class="text_wh_bold">@Model.userTaskSubtittle</p>
-			<p class="text_wh" style="margin-bottom: 0px;">@Model.userTaskText <a href="#cont" class="scrollto">«Полезные контакты»</a></p>
+			<p class="wh_zag">@Html.Raw(@Model.userTaskTittle)</p>
+			<p class="text_wh_bold">@Html.Raw(@Model.userTaskSubtittle)</p>
+			<p class="text_wh" style="margin-bottom: 0px;">@Html.Raw(@Model.userTaskText) </p>
 
 			<div class="flex_wh">
 				@foreach (var item in Model.userTaskItems){
-					<div><div class="ttd"><p>@item.name</p></div></div>
+					<div><div class="ttd"><p>@Html.Raw(@item.name)</p></div></div>
 				}
 			</div>
 
@@ -121,27 +433,39 @@
 			<div class="slaid">
 				@foreach (var item in Model.userTaskItems){
 					<div>
-						<p class="sla_zag">@item.tittle</p>
+						<p class="sla_zag">@Html.Raw(@item.tittle)</p>
 
-						<div class="l_s_m_t">
-							@foreach (var parag in item.paragraphs){
-							<div class="dots">
-								<p class="dots_zag">@parag.tittle</p>
-								<p class="dots_text">@parag.subtittle</p>
+						@{
+								int paragCount = item.paragraphs.Count();
+								string raspClass = "r_s_m_t";
+
+								foreach (var parag in item.paragraphs){
+									if(paragCount%2 == 0)
+									{
+										raspClass = "l_s_m_t";
+									}
+									paragCount = paragCount - 1;
+									<div class="@raspClass">
+								<div class="restorflex">
+										<div class="dots">
+											<p class="dots_zag">@Html.Raw(parag.tittle)</p>
+											<p class="dots_text">@Html.Raw(parag.subtittle)</p>
+										</div>
+										<div class="donload">
+											@foreach (var file in parag.files){
+												<a href="..\..\..\@file.path" download><img src="~/img/don.png">
+												<p style="margin-top: 10px;">@Html.Raw(file.name)</p></a>
+											}
+											@foreach (var link in parag.links){
+												<a href="@getHostName/@link.link">
+													@Html.Raw(link.icon) @link.name
+												</a>
+											}
+										</div>
+								</div>
+							
 							</div>
-							<div class="donload">
-								@foreach (var file in parag.files){
-									<a href="..\..\..\@file.path" download><img src="~/img/don.png">
-									<p style="margin-top: 10px;">@file.name</p></a>
-								}
-								@foreach (var link in parag.links){
-									@link.link
-									@link.name
-									@link.icon
-								}
-							</div>
-							}
-						</div>
+							}}
 					</div>
 				}
 			</div>
@@ -165,12 +489,12 @@
 							<div>
 								<div class="contact_flex">
 									<div class="box">
-										<p class="qr">@item.tittle </p>
-										<div class="dt"><p>@item.text</p></div>
+										<p class="qr">@Html.Raw(@item.tittle) </p>
+										<div class="dt"><p>@Html.Raw(@item.text)</p></div>
 										<div class="cont_info">
-											<p class="name">@item.phoneName</p>
-											<p class="phhp">@item.phoneNumber</p>
-											<p><a href="mailto:@item.email">@item.email</a></p>
+											<p class="name">@Html.Raw(@item.phoneName)</p>
+											<p class="phhp">@Html.Raw(@item.phoneNumber)</p>
+											<p><a href="mailto:@item.email">@Html.Raw(@item.email)</a></p>
 										</div>
 									</div>
 								</div>
@@ -181,3 +505,777 @@
 	</div>
 	<div class="bg_fon2"></div>
 </section>
+
+<div id="test-popup0" class="white-popup mfp-hide">
+   <div class="osn01 osn">
+  		<img  src="~/img_sotr/0.png">
+  		<p class="pers01 per" data-per='ppop01'>.</p>
+  	</div>
+  	<div class="ppop ppop01">
+  		<img  src="~/img_sotr/01.png">
+  		<p class="ppers01 per" data-per='osn01'>.</p>
+  	</div>
+</div>
+
+
+
+<div id="test-popup3" class="white-popup mfp-hide">
+   <div class="osn31 osn">
+  		<img  src="~/img_sotr/3.png">
+  	</div>
+</div>
+
+<div id="test-popup6" class="white-popup mfp-hide">
+   <div class="osn61 osn">
+  		<img  src="~/img_sotr/6.png">
+  	</div>
+</div>
+
+<div id="test-popup10" class="white-popup mfp-hide">
+   <div class="osn101 osn">
+  		<img  src="~/img_sotr/10.png">
+  	</div>
+</div>
+
+
+<div id="test-popup9" class="white-popup mfp-hide">
+   <div class="osn91 osn">
+  		<img  src="~/img_sotr/9.png">
+  		<p class="pers91 per" data-per='ppop91'>.</p>
+  		<p class="pers92 per" data-per='ppop92'>.</p>
+  	</div>
+  	<div class="ppop ppop91">
+  		<img  src="~/img_sotr/91.png">
+  		<p class="ppers91 per" data-per='osn91'>.</p>
+  	</div>
+  	<div class="ppop ppop92">
+  		<img  src="~/img_sotr/92.png">
+  		<p class="ppers92 per" data-per='osn91'>.</p>
+  		<a href="pdg_ruk/probation_emp.pdf" download class="ppers93">.</a>
+  	</div>
+</div>
+
+
+
+<div id="test-popup8" class="white-popup mfp-hide">
+   <div class="osn81 osn">
+  		<img  src="~/img_sotr/8.png">
+  		<p class="pers81 per" data-per='ppop81'>.</p>
+  	</div>
+  	<div class="ppop ppop81">
+  		<img  src="~/img_sotr/81.png">
+  		<a href="https://team.nm-g.ru/req/Lists/List15/NewForm.aspx?Source=https://team.nm-g.ru/req/SitePages/%D0%94%D0%BE%D0%BC%D0%B0%D1%88%D0%BD%D1%8F%D1%8F.aspx" class="ppers81" target="_blank">.</a>
+  		<p class="ppers82 per" data-per='osn81'>.</p>
+  	</div>
+</div>
+
+
+<div id="test-popup8s" class="white-popup mfp-hide">
+   <div class="osn82 osn">
+  		<img  src="~/img_sotr/8.png">
+  		<p class="pers81 per" data-per='ppop82'>.</p>
+  	</div>
+  	<div class="ppop ppop82">
+  		<img  src="~/img_sotr/82.png">
+  		
+  		<p class="ppers82 per" data-per='osn82'>.</p>
+  	</div>
+</div>
+
+<div id="test-popup7" class="white-popup mfp-hide">
+   <div class="osn71 osn">
+  		<img  src="~/img_sotr/7.png">
+  		<p class="pers71 per" data-per='ppop71'>.</p>
+  		<p class="pers72 per" data-per='ppop72'>.</p>
+  		<p class="pers73 per" data-per='ppop73'>.</p>
+  		<a href="https://team.nmg.ru/apps/newsblock/groupsnews" target="_blank" class="pers74">.</a>
+  		<a href="https://t.me/+_5x2UVJBHWY0YjI6" target="_blank" class="pers75">.</a>
+  	</div>
+  	<div class="ppop ppop71">
+  		<img  src="~/img_sotr/71.png">
+  		<p class="ppers71 per" data-per='osn71'>.</p>
+  	</div>
+  	<div class="ppop ppop72">
+  		<img  src="~/img_sotr/72.png">
+  		<p class="ppers72 per" data-per='osn71'>.</p>
+  	</div>
+  	<div class="ppop ppop73">
+  		<img  src="~/img_sotr/73.png">
+  		<p class="ppers73 per" data-per='osn71'>.</p>
+  	</div>
+</div>
+
+<div id="test-popup7nmg" class="white-popup mfp-hide">
+   <div class="osn71nmg osn">
+  		<img  src="~/img_sotr/7nmg.png">
+  		<p class="pers71nmg per" data-per='ppop71nmg'>.</p>
+  		<p class="pers72nmg per" data-per='ppop72nmg'>.</p>
+  		<p class="pers73nmg per" data-per='ppop73nmg'>.</p>
+  		<a href="https://team.nmg.ru/apps/newsblock/index" target="_blank" class="pers74">.</a>
+  		<a href="https://t.me/+_5x2UVJBHWY0YjI6" target="_blank" class="pers75">.</a>
+  	</div>
+  	<div class="ppop ppop71nmg">
+  		<img  src="~/img_sotr/71.png">
+  		<p class="ppers71nmg per" data-per='osn71nmg'>.</p>
+  	</div>
+  	<div class="ppop ppop72nmg">
+  		<img  src="~/img_sotr/72.png">
+  		<p class="ppers72nmg per" data-per='osn71nmg'>.</p>
+  	</div>
+  	<div class="ppop ppop73nmg">
+  		<img  src="~/img_sotr/73.png">
+  		<p class="ppers73nmg per" data-per='osn71nmg'>.</p>
+  	</div>
+</div>
+
+
+
+
+<div id="test-popup1" class="white-popup mfp-hide">
+   <div class="osn11 osn">
+  		<img  src="~/img_sotr/1.png">
+  		<p class="pers11 per" data-per='ppop11'>.</p>
+  		<p class="pers12 per" data-per='ppop12'>.</p>
+  		<p class="pers13 per" data-per='ppop13'>.</p>
+  		<p class="pers14 per" data-per='ppop14'>.</p>
+  		<p class="pers15 per" data-per='ppop15'>.</p>
+  		<p class="pers16 per" data-per='ppop16'>.</p>
+  		<p class="pers17 per" data-per='ppop17'>.</p>
+  		<p class="pers18 per" data-per='ppop18'>.</p>
+  		<p class="pers19 per" data-per='ppop19'>.</p>
+  		<p class="pers110 per" data-per='ppop110'>.</p>
+  		<p class="pers111 per" data-per='ppop111'>.</p>
+  		<p class="pers112 per" data-per='ppop112'>.</p>
+  		<p class="pers113 per" data-per='ppop113'>.</p>
+
+  		
+  	</div>
+  	<div class="ppop ppop11">
+  		<img  src="~/img_sotr/11.png">
+  		<p class="ppers11 per" data-per='osn11'>.</p>
+  	</div>
+
+  	<div class="ppop ppop12">
+  		<img  src="~/img_sotr/12.png">
+  		<p class="ppers12 per" data-per='osn11'>.</p>
+  	</div>
+
+  	<div class="ppop ppop13">
+  		<img  src="~/img_sotr/13.png">
+  		<p class="ppers13 per" data-per='osn11'>.</p>
+  	</div>
+
+  	<div class="ppop ppop14">
+  		<img  src="~/img_sotr/14.png">
+  		<p class="ppers14 per" data-per='osn11'>.</p>
+  	</div>
+
+  	<div class="ppop ppop15">
+  		<img  src="~/img_sotr/15.png">
+  		<p class="ppers15 per" data-per='osn11'>.</p>
+  	</div>
+
+  	<div class="ppop ppop16">
+  		<img  src="~/img_sotr/16.png">
+  		<p class="ppers16 per" data-per='osn11'>.</p>
+  	</div>
+
+  	<div class="ppop ppop17">
+  		<img  src="~/img_sotr/17.png">
+  		<p class="ppers17 per" data-per='osn11'>.</p>
+  	</div>
+
+  	<div class="ppop ppop18">
+  		<img  src="~/img_sotr/18.png">
+  		<p class="ppers18 per" data-per='osn11'>.</p>
+  	</div>
+
+  	<div class="ppop ppop19">
+  		<img  src="~/img_sotr/19.png">
+  		<p class="ppers19 per" data-per='osn11'>.</p>
+  	</div>
+
+  	<div class="ppop ppop110">
+  		<img  src="~/img_sotr/110.png">
+  		<p class="ppers110 per" data-per='osn11'>.</p>
+  	</div>
+
+  	<div class="ppop ppop111">
+  		<img  src="~/img_sotr/111.png">
+  		<p class="ppers111 per" data-per='osn11'>.</p>
+  	</div>
+
+  	<div class="ppop ppop112">
+  		<img  src="~/img_sotr/112.png">
+  		<p class="ppers112 per" data-per='osn11'>.</p>
+  	</div>
+
+  	<div class="ppop ppop113">
+  		<img  src="~/img_sotr/113.png">
+  		<p class="ppers113 per" data-per='osn11'>.</p>
+  	</div>
+
+  	<div class="ppop ppop114">
+  		<img  src="~/img_sotr/114.png">
+  		<p class="ppers1141 per" data-per='ppop115'>.</p>
+  		<p class="ppers1142 per" data-per='ppop116'>.</p>
+  		<p class="ppers1143 per" data-per='ppop117'>.</p>
+  		<p class="ppers1144 per" data-per='ppop118'>.</p>
+  		<p class="ppers1145 per" data-per='ppop119'>.</p>
+  		<p class="ppers1146 per" data-per='ppop120'>.</p>
+  		<p class="ppers1147 per" data-per='ppop121'>.</p>
+  		<p class="ppers1148 per" data-per='ppop122'>.</p>
+  		<p class="ppers1149 per" data-per='ppop123'>.</p>
+  		<p class="ppers11410 per" data-per='ppop124'>.</p>
+  	</div>
+
+  	<div class="ppop ppop115">
+  		<img  src="~/img_sotr/115.png">
+  		<p class="ppers115 per" data-per='ppop114'>.</p>
+  	</div>
+
+  	<div class="ppop ppop116">
+  		<img  src="~/img_sotr/116.png">
+  		<p class="ppers116 per" data-per='ppop114'>.</p>
+  	</div>
+
+  	<div class="ppop ppop117">
+  		<img  src="~/img_sotr/117.png">
+  		<p class="ppers117 per" data-per='ppop114'>.</p>
+  	</div>
+
+  	<div class="ppop ppop118">
+  		<img  src="~/img_sotr/118.png">
+  		<p class="ppers118 per" data-per='ppop114'>.</p>
+  	</div>
+
+  	<div class="ppop ppop119">
+  		<img  src="~/img_sotr/119.png">
+  		<p class="ppers119 per" data-per='ppop114'>.</p>
+  	</div>
+
+  	<div class="ppop ppop120">
+  		<img  src="~/img_sotr/120.png">
+  		<p class="ppers120 per" data-per='ppop114'>.</p>
+  	</div>
+
+  	<div class="ppop ppop121">
+  		<img  src="~/img_sotr/121.png">
+  		<p class="ppers121 per" data-per='ppop114'>.</p>
+  	</div>
+
+  	<div class="ppop ppop122">
+  		<img  src="~/img_sotr/122.png">
+  		<p class="ppers122 per" data-per='ppop114'>.</p>
+  	</div>
+
+  	<div class="ppop ppop123">
+  		<img  src="~/img_sotr/123.png">
+  		<p class="ppers123 per" data-per='ppop114'>.</p>
+  	</div>
+
+  	<div class="ppop ppop124">
+  		<img  src="~/img_sotr/124.png">
+  		<p class="ppers124 per" data-per='ppop114'>.</p>
+  	</div>
+  	
+</div>
+
+
+<div id="test-popup1s" class="white-popup mfp-hide">
+  	<div class="osn ppop114">
+  		<img  src="~/img_sotr/114.png">
+  		<p class="ppers1141 per" data-per='ppop115'>.</p>
+  		<p class="ppers1142 per" data-per='ppop116'>.</p>
+  		<p class="ppers1143 per" data-per='ppop117'>.</p>
+  		<p class="ppers1144 per" data-per='ppop118'>.</p>
+  		<p class="ppers1145 per" data-per='ppop119'>.</p>
+  		<p class="ppers1146 per" data-per='ppop120'>.</p>
+  		<p class="ppers1147 per" data-per='ppop121'>.</p>
+  		<p class="ppers1148 per" data-per='ppop122'>.</p>
+  		<p class="ppers1149 per" data-per='ppop123'>.</p>
+  		<p class="ppers11410 per" data-per='ppop124'>.</p>
+  	</div>
+
+  	<div class="ppop ppop115">
+  		<img  src="~/img_sotr/115.png">
+  		<p class="ppers115 per" data-per='ppop114'>.</p>
+  	</div>
+
+  	<div class="ppop ppop116">
+  		<img  src="~/img_sotr/116.png">
+  		<p class="ppers116 per" data-per='ppop114'>.</p>
+  	</div>
+
+  	<div class="ppop ppop117">
+  		<img  src="~/img_sotr/117.png">
+  		<p class="ppers117 per" data-per='ppop114'>.</p>
+  	</div>
+
+  	<div class="ppop ppop118">
+  		<img  src="~/img_sotr/118.png">
+  		<p class="ppers118 per" data-per='ppop114'>.</p>
+  	</div>
+
+  	<div class="ppop ppop119">
+  		<img  src="~/img_sotr/119.png">
+  		<p class="ppers119 per" data-per='ppop114'>.</p>
+  	</div>
+
+  	<div class="ppop ppop120">
+  		<img  src="~/img_sotr/120.png">
+  		<p class="ppers120 per" data-per='ppop114'>.</p>
+  	</div>
+
+  	<div class="ppop ppop121">
+  		<img  src="~/img_sotr/121.png">
+  		<p class="ppers121 per" data-per='ppop114'>.</p>
+  	</div>
+
+  	<div class="ppop ppop122">
+  		<img  src="~/img_sotr/122.png">
+  		<p class="ppers122 per" data-per='ppop114'>.</p>
+  	</div>
+
+  	<div class="ppop ppop123">
+  		<img  src="~/img_sotr/123.png">
+  		<p class="ppers123 per" data-per='ppop114'>.</p>
+  	</div>
+
+  	<div class="ppop ppop124">
+  		<img  src="~/img_sotr/124.png">
+  		<p class="ppers124 per" data-per='ppop114'>.</p>
+  	</div>
+  	
+</div>
+
+
+<div id="test-popup2" class="white-popup mfp-hide">
+   <div class="osn21 osn">
+  		<img  src="~/img_sotr/2.png">
+  		<a href="https://team.nmg.ru/apps/employeeslist/index" target="_blank" class="pers21">.</a>
+  		<p class="pers22 per" data-per='ppop22'>.</p>
+  		<p class="pers23 per" data-per='ppop23'>.</p>
+  		<p class="pers24 per" data-per='ppop24'>.</p>
+  		<p class="pers25 per" data-per='ppop25'>.</p>
+  		<p class="pers26 per" data-per='ppop26'>.</p>
+  		<p class="pers27 per" data-per='ppop27'>.</p>
+  		<p class="pers28 per" data-per='ppop28'>.</p>
+  		<p class="pers29 per" data-per='ppop29'>.</p>
+  		<p class="pers210 per" data-per='ppop210'>.</p>
+  		<p class="pers211 per" data-per='ppop211'>.</p>
+  	</div>
+  	<div class="ppop ppop22">
+  		<img  src="~/img_sotr/21.png">
+  		<p class="ppers22 per" data-per='ppop23'>.</p>
+  		<a href="https://team.nmg.ru/apps/about/stsm" target="_blank" class="ppers221">.</a>
+  		<a href="https://team.nmg.ru/apps/about/five" target="_blank" class="ppers222">.</a>
+  		<a href="https://team.nmg.ru/apps/about/channel78" target="_blank" class="ppers223">.</a>
+  		<a href="https://team.nmg.ru/apps/about/rentv"  target="_blank" class="ppers224">.</a>
+  	</div>
+  	<div class="ppop ppop23">
+  		<img  src="~/img_sotr/22.png">
+  		<p class="ppers23 per" data-per='ppop24'>.</p>
+  		<a href="https://team.nmg.ru/apps/about/viasat" target="_blank" class="ppers231 ">.</a>
+  		<a href="https://team.nmg.ru/apps/about/mt" target="_blank" class="ppers232 ">.</a>
+  	</div>
+  	<div class="ppop ppop24">
+  		<img  src="~/img_sotr/23.png">
+  		<p class="ppers24 per" data-per='ppop25'>.</p>
+  		<a href="https://team.nmg.ru/apps/about/amd" target="_blank" class="ppers241 ">.</a>
+  		<a href="https://team.nmg.ru/apps/about/nmgt" target="_blank" class="ppers242 ">.</a>
+  	</div>
+  	<div class="ppop ppop25">
+  		<img  src="~/img_sotr/24.png">
+  		<p class="ppers25 per" data-per='ppop26'>.</p>
+  		<a href="https://team.nmg.ru/apps/about/kb" target="_blank" class="ppers251">.</a>
+  	</div>
+  	<div class="ppop ppop26">
+  		<img  src="~/img_sotr/25.png">
+  		<p class="ppers26 per" data-per='ppop27'>.</p>
+  		<a href="https://team.nmg.ru/apps/about/nmgs" target="_blank" class="ppers261">.</a>
+  		<a href="https://team.nmg.ru/apps/about/metrafilms" target="_blank" class="ppers262">.</a>
+  		<a href="https://team.nmg.ru/apps/about/vodorod" target="_blank" class="ppers263">.</a>
+  		<a href="https://team.nmg.ru/apps/about/aps" target="_blank" class="ppers264">.</a>
+  		<a href="https://nmg.ru/holdings/mars-media-vision" target="_blank" class="ppers265">.</a>
+  		<a href="https://team.nmg.ru/apps/about/apv" target="_blank" class="ppers266">.</a>
+  		<a href="https://team.nmg.ru/apps/about/keystone" target="_blank" class="ppers267">.</a>
+  		<a href="https://nmg.ru/holdings/mars-media-vision" target="_blank" class="ppers268">.</a>
+  		<a href="https://nmg.ru/holdings/star-media-vision" target="_blank" class="ppers269">.</a>
+  	</div>
+  	<div class="ppop ppop27">
+  		<img  src="~/img_sotr/26.png">
+  		<p class="ppers27 per" data-per='ppop28'>.</p>
+  		<a href="https://team.nmg.ru/apps/about/izvestiya" target="_blank" class="ppers271">.</a>
+  		<a href="https://team.nmg.ru/apps/about/se" target="_blank" class="ppers272">.</a>
+  		<a href="https://team.nmg.ru/apps/about/dp" target="_blank" class="ppers273">.</a>
+  	</div>
+  	<div class="ppop ppop28">
+  		<img  src="~/img_sotr/27.png">
+  		<p class="ppers28 per" data-per='ppop29'>.</p>
+  		<a href="https://team.nmg.ru/apps/about/everest" target="_blank" class="ppers281">.</a>
+  		<a href="https://nmg.ru/holdings/hype-agency" target="_blank" class="ppers282">.</a>
+  	</div>
+  	<div class="ppop ppop29">
+  		<img  src="~/img_sotr/28.png">
+  		<p class="ppers29 per" data-per='ppop210'>.</p>
+  		<a href="https://team.nmg.ru/apps/about/moretv" target="_blank" class="ppers291">.</a>
+  		<a href="https://nmg.ru/holdings/vitrina-tv" target="_blank" class="ppers292">.</a>
+  	</div>
+  	<div class="ppop ppop210">
+  		<img  src="~/img_sotr/29.png">
+  		<p class="ppers210 per" data-per='osn21'>.</p>
+  		<a href="https://team.nmg.ru/apps/about/mbs" target="_blank" class="ppers2101">.</a>
+  	</div>
+  	<div class="ppop ppop211">
+  		<img  src="~/img_sotr/210.png">
+  		<p class="ppers211 per" data-per='osn21'>.</p>
+  	</div>
+  	
+</div>
+
+
+
+
+<div id="test-popup5" class="white-popup mfp-hide">
+   <div class="osn51 osn">
+  		<img  src="~/img_sotr/5.png">
+  		<p class="pers51 per" data-per='ppop51'>.</p>
+  		<p class="pers52 per" data-per='ppop52'>.</p>
+  		<p class="pers53 per" data-per='ppop53'>.</p>
+  		<p class="pers54 per" data-per='ppop54'>.</p>
+  		<p class="pers55 per" data-per='ppop55'>.</p>
+  	</div>
+  	<div class="ppop ppop51">
+  		<img  src="~/img_sotr/51.png">
+  		<p class="ppers51 per" data-per='osn51'>.</p>
+  	</div>
+  	<div class="ppop ppop52">
+  		<img  src="~/img_sotr/52.png">
+  		<p class="ppers52 per" data-per='osn51'>.</p>
+  	</div>
+  	<div class="ppop ppop54">
+  		<img  src="~/img_sotr/53.png">
+  		<p class="ppers54 per" data-per='osn51'>.</p>
+  	</div>
+  	<div class="ppop ppop55">
+  		<img  src="~/img_sotr/511.png">
+  		<p class="ppers55 per" data-per='osn51'>.</p>
+  		<a href="https://t.me/channel_ctc" target="_blank" class="ppers551">.</a>
+  		<a href="https://t.me/chetvru" target="_blank" class="ppers552">.</a>
+  		<a href="https://t.me/tv_domashniy" target="_blank" class="ppers553">.</a>
+  		<a href="https://t.me/itsmoretv" target="_blank" class="ppers554">.</a>
+  		<a href="https://t.me/ctckids" target="_blank" class="ppers555">.</a>
+  		<a href="https://t.me/lovectclove" target="_blank" class="ppers556">.</a>
+  		<a href="https://t.me/rentv_news" target="_blank" class="ppers557">.</a>
+  		<a href="https://t.me/izvestia" target="_blank" class="ppers558">.</a>
+  		<a href="https://t.me/sportexpress" target="_blank" class="ppers559">.</a>
+  		<a href="https://t.me/ChannelFivePromo" target="_blank" class="ppers5510">.</a>
+  		<a href="https://t.me/+_5x2UVJBHWY0YjI6" target="_blank" class="ppers5511">.</a>
+  		<a href="https://team.nmg.ru/apps/about" target="_blank" class="ppers5512">.</a>
+  	</div>
+
+
+  	<div class="ppop ppop53">
+  		<img  src="~/img_sotr/54.png">
+  		<p class="ppers53 per" data-per='osn51'>.</p>
+
+  		<p class="ppers531 per" data-per='ppop56'>.</p>
+  		<p class="ppers532 per" data-per='ppop57'>.</p>
+  		<p class="ppers533 per" data-per='ppop58'>.</p>
+  		<p class="ppers534 per" data-per='ppop59'>.</p>
+  		<p class="ppers535 per" data-per='ppop510'>.</p>
+  		<p class="ppers536 per" data-per='ppop511'>.</p>
+  		<p class="ppers537 per" data-per='ppop512'>.</p>
+  	</div>
+
+  	<div class="ppop ppop56">
+  		<img  src="~/img_sotr/55.png">
+  		<p class="ppers56 per" data-per='ppop53'>.</p>
+  	</div>
+  	<div class="ppop ppop57">
+  		<img  src="~/img_sotr/56.png">
+  		<p class="ppers56 per" data-per='ppop53'>.</p>
+
+  		<a href="https://team.nmg.ru/apps/map/officemap/22" target="_blank" class="ppers561">.</a>
+  	</div>
+  	<div class="ppop ppop58">
+  		<img  src="~/img_sotr/57.png">
+  		<p class="ppers56 per" data-per='ppop53'>.</p>
+
+  		<a href="http://intranet.ctcmedia.ru/floorplan.aspx" target="_blank" class="ppers581">.</a>
+  	</div>
+  	<div class="ppop ppop59">
+  		<img  src="~/img_sotr/512.png">
+  		<p class="ppers56 per" data-per='ppop53'>.</p>
+  	</div>
+  	<div class="ppop ppop510">
+  		<img  src="~/img_sotr/58.png">
+  		<p class="ppers56 per" data-per='ppop53'>.</p>
+
+  		<a href="https://intranet.ctcmedia.ru/floorplan.aspx" target="_blank" class="ppers5101">.</a>
+  	</div>
+  	<div class="ppop ppop511">
+  		<img  src="~/img_sotr/59.png">
+  		
+  		<p class="ppers56 per" data-per='ppop53'>.</p>
+  	</div>
+  	<div class="ppop ppop512">
+  		<img  src="~/img_sotr/510.png">
+  		<p class="ppers56 per" data-per='ppop53'>.</p>
+  	</div>
+  	
+</div>
+
+
+
+<div id="test-popup4" class="white-popup mfp-hide">
+   <div class="osn41 osn">
+  		<img  src="~/img_sotr/4.png">
+  		<p class="pers41 per" data-per='ppop41'>.</p>
+  		<p class="pers42 per" data-per='ppop42'>.</p>
+  		<p class="pers43 per" data-per='ppop43'>.</p>
+  		<p class="pers44 per" data-per='ppop44'>.</p>
+  		<p class="pers45 per" data-per='ppop45'>.</p>
+  		<a href="https://player.vimeo.com/video/686317923?h=821db0fc2a" target="_blank" class="pers46">.</a>
+  		<a href="https://team.nmg.ru/apps/club/index/2680" target="_blank" class="pers47">.</a>
+  	</div>
+  	<div class="ppop ppop41">
+  		<img  src="~/img_sotr/41.png">
+  		<p class="ppers41 per" data-per='osn41'>.</p>
+  	</div>
+  	<div class="ppop ppop42">
+  		<img  src="~/img_sotr/42.png">
+  		<p class="ppers42 per" data-per='osn41'>.</p>
+  	</div>
+  	<div class="ppop ppop43">
+  		<img  src="~/img_sotr/43.png">
+  		<p class="ppers43 per" data-per='osn41'>.</p>
+  	</div>
+  	<div class="ppop ppop44">
+  		<img  src="~/img_sotr/44.png">
+  		<p class="ppers44 per" data-per='osn41'>.</p>
+  	</div>
+  	<div class="ppop ppop45">
+  		<img  src="~/img_sotr/45.png">
+  		<p class="ppers45 per" data-per='osn41'>.</p>
+  		<a href="https://vimeo.com/697359480/877ae6f52a" target="_blank" class="pers461">.</a>
+  	</div>
+  	
+</div>
+
+
+
+<div id="test-popup4s" class="white-popup mfp-hide">
+   <div class="osn41s osn">
+  		<img  src="~/img_sotr/4s.png">
+  		<p class="pers41s per" data-per='ppop41s'>.</p>
+  		<p class="pers42s per" data-per='ppop42s'>.</p>
+  		<p class="pers43s per" data-per='ppop43s'>.</p>
+  		<p class="pers44s per" data-per='ppop44s'>.</p>
+  		<p class="pers45s per" data-per='ppop45s'>.</p>
+  		<a href="https://player.vimeo.com/video/686317923?h=821db0fc2a" target="_blank" class="pers46s">.</a>
+  		<a href="https://team.nmg.ru/apps/club/index/2680" target="_blank" class="pers47s">.</a>
+  		<p class="pers48s per" data-per='ppop46s'>.</p>
+  	</div>
+  	<div class="ppop ppop41s">
+  		<img  src="~/img_sotr/41s.png">
+  		<p class="ppers41s per" data-per='osn41s'>.</p>
+  	</div>
+  	<div class="ppop ppop42s">
+  		<img  src="~/img_sotr/42s.png">
+  		<p class="ppers42s per" data-per='osn41s'>.</p>
+  	</div>
+  	<div class="ppop ppop43s">
+  		<img  src="~/img_sotr/43s.png">
+  		<p class="ppers43s per" data-per='osn41s'>.</p>
+  	</div>
+  	<div class="ppop ppop44s">
+  		<img  src="~/img_sotr/44s.png">
+  		<p class="ppers44s per" data-per='osn41s'>.</p>
+  	</div>
+  	<div class="ppop ppop45s">
+  		<img  src="~/img_sotr/45s.png">
+  		<p class="ppers45s per" data-per='osn41s'>.</p>
+  		<a href="https://vimeo.com/697359480/877ae6f52a" target="_blank" class="pers461s">.</a>
+  	</div>
+
+  	<div class="ppop ppop46s">
+  		<img  src="~/img_sotr/46s.png">
+  		<p class="ppers46s per" data-per='osn41s'>.</p>
+  	</div>
+</div>
+
+<div id="test-popup4m" class="white-popup mfp-hide">
+   <div class="osn41m osn">
+  		<img  src="~/img_sotr/4m.png">
+  		<p class="pers41m per" data-per='ppop41m'>.</p>
+  		<p class="pers42m per" data-per='ppop42m'>.</p>
+  		<p class="pers43m per" data-per='ppop43m'>.</p>
+  		<p class="pers44m per" data-per='ppop44m'>.</p>
+  		<p class="pers45m per" data-per='ppop45m'>.</p>
+  		<a href="https://player.vimeo.com/video/686317923?h=821db0fc2a" target="_blank" class="pers46m">.</a>
+  		<a href="https://team.nmg.ru/apps/club/index/2680" target="_blank" class="pers47m">.</a>
+  		<p class="pers48m per" data-per='ppop46m'>.</p>
+  	</div>
+  	<div class="ppop ppop41m">
+  		<img  src="~/img_sotr/41m.png">
+  		<p class="ppers41m per" data-per='osn41m'>.</p>
+  	</div>
+  	<div class="ppop ppop42m">
+  		<img  src="~/img_sotr/42m.png">
+  		<p class="ppers42m per" data-per='osn41m'>.</p>
+  	</div>
+  	<div class="ppop ppop43m">
+  		<img  src="~/img_sotr/43m.png">
+  		<p class="ppers43m per" data-per='osn41m'>.</p>
+  	</div>
+  	<div class="ppop ppop44m">
+  		<img  src="~/img_sotr/44m.png">
+  		<p class="ppers44m per" data-per='osn41m'>.</p>
+  	</div>
+  	<div class="ppop ppop45m">
+  		<img  src="~/img_sotr/45m.png">
+  		<p class="ppers45m per" data-per='osn41m'>.</p>
+  		<a href="https://vimeo.com/697359480/877ae6f52a" target="_blank" class="pers461m">.</a>
+  	</div>
+
+  	<div class="ppop ppop46m">
+  		<img  src="~/img_sotr/46m.png">
+  		<p class="ppers46m per" data-per='osn41m'>.</p>
+  	</div>
+</div>
+
+<div id="test-popup4mo" class="white-popup mfp-hide">
+   <div class="osn41mo osn">
+  		<img  src="~/img_sotr/4mo.png">
+  		<p class="pers41mo per" data-per='ppop41mo'>.</p>
+  		<p class="pers42mo per" data-per='ppop42mo'>.</p>
+  		<p class="pers43mo per" data-per='ppop43mo'>.</p>
+  		<p class="pers44mo per" data-per='ppop44mo'>.</p>
+  		<p class="pers45mo per" data-per='ppop45mo'>.</p>
+  		<a href="https://player.vimeo.com/video/686317923?h=821db0fc2a" target="_blank" class="pers46mo">.</a>
+  		<a href="https://team.nmg.ru/apps/club/index/2680" target="_blank" class="pers47mo">.</a>
+  		<p class="pers48mo per" data-per='ppop46mo'>.</p>
+  	</div>
+  	<div class="ppop ppop41mo">
+  		<img  src="~/img_sotr/41mo.png">
+  		<p class="ppers41mo per" data-per='osn41mo'>.</p>
+  	</div>
+  	<div class="ppop ppop42mo">
+  		<img  src="~/img_sotr/42mo.png">
+  		<p class="ppers42mo per" data-per='osn41mo'>.</p>
+  	</div>
+  	<div class="ppop ppop43mo">
+  		<img  src="~/img_sotr/43mo.png">
+  		<p class="ppers43mo per" data-per='osn41mo'>.</p>
+  	</div>
+  	<div class="ppop ppop44mo">
+  		<img  src="~/img_sotr/44mo.png">
+  		<p class="ppers44mo per" data-per='osn41mo'>.</p>
+  	</div>
+  	<div class="ppop ppop45mo">
+  		<img  src="~/img_sotr/45mo.png">
+  		<p class="ppers45mo per" data-per='osn41mo'>.</p>
+  		<a href="https://vimeo.com/697359480/877ae6f52a" target="_blank" class="pers461mo">.</a>
+  	</div>
+
+  	<div class="ppop ppop46mo">
+  		<img  src="~/img_sotr/46mo.png">
+  		<p class="ppers46mo per" data-per='osn41mo'>.</p>
+  	</div>
+</div>
+
+
+<div id="test-popup4e" class="white-popup mfp-hide">
+   <div class="osn41e osn">
+  		<img  src="~/img_sotr/4e.png">
+  		<p class="pers41e per" data-per='ppop41e'>.</p>
+  		<p class="pers42e per" data-per='ppop42e'>.</p>
+  		<p class="pers43e per" data-per='ppop43e'>.</p>
+  		<p class="pers44e per" data-per='ppop44e'>.</p>
+  		<p class="pers45e per" data-per='ppop45e'>.</p>
+  		<a href="https://player.vimeo.com/video/686317923?h=821db0fc2a" target="_blank" class="pers46e">.</a>
+  		<a href="https://team.nmg.ru/apps/club/index/2680" target="_blank" class="pers47e">.</a>
+  		<p class="pers48e per" data-per='ppop46e'>.</p>
+  	</div>
+  	<div class="ppop ppop41e">
+  		<img  src="~/img_sotr/41e.png">
+  		<p class="ppers41e per" data-per='osn41e'>.</p>
+  	</div>
+  	<div class="ppop ppop42e">
+  		<img  src="~/img_sotr/42e.png">
+  		<p class="ppers42e per" data-per='osn41e'>.</p>
+  	</div>
+  	<div class="ppop ppop43e">
+  		<img  src="~/img_sotr/43e.png">
+  		<p class="ppers43e per" data-per='osn41e'>.</p>
+  	</div>
+  	<div class="ppop ppop44e">
+  		<img  src="~/img_sotr/44e.png">
+  		<p class="ppers44e per" data-per='osn41e'>.</p>
+  	</div>
+  	<div class="ppop ppop45e">
+  		<img  src="~/img_sotr/45e.png">
+  		<p class="ppers45e per" data-per='osn41e'>.</p>
+  		<a href="https://vimeo.com/697359480/877ae6f52a" target="_blank" class="pers461e">.</a>
+  	</div>
+
+  	<div class="ppop ppop46e">
+  		<img  src="~/img_sotr/46e.png">
+  		<p class="ppers46e per" data-per='osn41e'>.</p>
+  	</div>
+</div>
+
+<div id="test-popup4mb" class="white-popup mfp-hide">
+   <div class="osn41mb osn">
+  		<img  src="~/img_sotr/4mb.png">
+  		<p class="pers41mb per" data-per='ppop41mb'>.</p>
+  		<p class="pers42mb per" data-per='ppop42mb'>.</p>
+  		<p class="pers43mb per" data-per='ppop43mb'>.</p>
+  		<p class="pers44mb per" data-per='ppop44mb'>.</p>
+  		<p class="pers45mb per" data-per='ppop45mb'>.</p>
+  		<a href="https://player.vimeo.com/video/686317923?h=821db0fc2a" target="_blank" class="pers46mb">.</a>
+  		<a href="https://team.nmg.ru/apps/club/index/2680" target="_blank" class="pers47mb">.</a>
+  		<p class="pers48mb per" data-per='ppop46mb'>.</p>
+  	</div>
+  	<div class="ppop ppop41mb">
+  		<img  src="~/img_sotr/41mb.png">
+  		<p class="ppers41mb per" data-per='osn41mb'>.</p>
+  	</div>
+  	<div class="ppop ppop42mb">
+  		<img  src="~/img_sotr/42mb.png">
+  		<p class="ppers42mb per" data-per='osn41mb'>.</p>
+  	</div>
+  	<div class="ppop ppop43mb">
+  		<img  src="~/img_sotr/43mb.png">
+  		<p class="ppers43mb per" data-per='osn41mb'>.</p>
+  	</div>
+  	<div class="ppop ppop44mb">
+  		<img  src="~/img_sotr/44mb.png">
+  		<p class="ppers44mb per" data-per='osn41mb'>.</p>
+  	</div>
+  	<div class="ppop ppop45mb">
+  		<img  src="~/img_sotr/45mb.png">
+  		<p class="ppers45mb per" data-per='osn41mb'>.</p>
+  		<a href="https://vimeo.com/697359480/877ae6f52a" target="_blank" class="pers461mb">.</a>
+  	</div>
+
+  	<div class="ppop ppop46mb">
+  		<img  src="~/img_sotr/46mb.png">
+  		<p class="ppers46mb per" data-per='osn41mb'>.</p>
+  	</div>
+</div>
+
+@section Scripts {
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/microplugin/0.0.3/microplugin.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sifter/0.5.4/sifter.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.13.3/js/selectize.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js" integrity="sha512-IsNh5E3eYy3tr/JiX2Yx4vsCujtkhwl7SLqgnwLNgf04Hrt9BT9SXlLlZlWx+OK4ndzAoALhsMNcCmkggjZB1w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://player.vimeo.com/api/player.js"></script>
+
+<script src="~/js/js_sotr.js"></script>
+}
