@@ -1,0 +1,87 @@
+﻿@model UserTask
+
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="card-body">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Id" />
+                    <input type="hidden" asp-for="FileName" />
+                    <input type="hidden" asp-for="FilePath" />
+                    <div class="form-group">
+                        <label asp-for="Tittle" class="control-label"></label>
+                        <input asp-for="Tittle" class="form-control" />
+                        <span asp-validation-for="Tittle" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Subtittle" class="control-label"></label>
+                        <textarea id="Subtittle" name="Subtittle" class="summernote" >@Model.Subtittle</textarea>
+                        <span asp-validation-for="Subtittle" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Text" class="control-label"></label>
+                        <textarea id="Text" name="Text" class="summernote" >@Model.Text</textarea>
+                        <span asp-validation-for="Text" class="text-danger"></span>
+                    </div>
+                    <input type="hidden" asp-for="CompanyId" />
+                    <div class="form-group">
+                        <label asp-for="UserTypeId" class="control-label"></label>
+                        <select asp-for="UserTypeId" class="form-control" asp-items="ViewBag.UserTypeId"></select>
+                        <span asp-validation-for="UserTypeId" class="text-danger"></span>
+                    </div>
+                    <div class="text-center">
+                        <button class="btn btn-primary" type="submit">Сохранить</button>
+                        <a asp-action="Index" asp-route-companyId="@Model.CompanyId" class="btn btn-secondary">Назад</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card card-danger">
+            <div class="card-header">
+              <h3 class="card-title">Файл</h3>
+
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                  <i class="fas fa-minus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="card-body">
+                @if(0 != @Model.Id) {
+                    if(null != @Model.FileName){
+                        <div class="form-group d-flex justify-content-between">
+                        <h5 class="card-title">Название сохраненного - @Model.FileName</h5>
+                        <div class="card-tools">
+                            <a href="..\..\..\@Model.FilePath" class="btn btn-info" target="_blank"><i class="fas fa-eye"></i></a>
+                        </div>
+                        </div>
+                    }
+                    <div class="form-group">
+                        <form asp-action="UploadFile" method="post" enctype="multipart/form-data">
+                            <input name="userTaskId" value="@Model.Id" hidden/>
+
+                            <input type="file" accept=".pdf" name="uploadFile" />
+                            <input class="btn btn-primary" type="submit" value="Загрузить" />
+                        </form>
+                    </div>
+                } else {
+                    <h3 class="card-title">Надо сохраннить запись</h3>
+                }
+            </div>
+            <!-- /.card-body -->
+          </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+     <script >
+        $(document).ready(function() {
+            $('.summernote').summernote();
+        });
+     </script>
+}

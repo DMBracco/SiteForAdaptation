@@ -1,0 +1,183 @@
+﻿@model EmployeeViewModel
+@{
+	ViewData["Title"] = "Сотрудник";
+	int indexSlaid = 1;
+}
+
+@section Stylesheet {
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" integrity="sha512-+EoPw+Fiwh6eSeRK7zwIKG2MA8i3rV/DGa3tdttQGgWyatG/SkncT53KHQaS5Jh9MNOT3dmFL0FjTY08And/Cw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="lightzoom/style.css" type="text/css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.13.3/css/selectize.bootstrap4.min.css" integrity="sha512-MMojOrCQrqLg4Iarid2YMYyZ7pzjPeXKRvhW9nZqLo6kPBBTuvNET9DBVWptAo/Q20Fy11EIHM5ig4WlIrJfQw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.13.3/css/selectize.min.css" integrity="sha512-bkB9w//jjNUnYbUpATZQCJu2khobZXvLP5GZ8jhltg7P/dghIrTaSJ7B/zdlBUT0W/LXGZ7FfCIqNvXjWKqCYA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+}
+
+<section class="header">
+		<div class="content">
+			<div class="menu_flex">
+				<div>
+					<img src="img/logo.png">
+				</div>
+				<div>
+					<a class="menu scrollto menu_of" href="@Model.NavBarLink_1" >@Model.NavBarTitle_1</a>
+					<a class="menu scrollto menu1" href="@Model.NavBarLink_2" >@Model.NavBarTitle_2</a>
+					<a class="menu scrollto menu2" href="@Model.NavBarLink_3" >@Model.NavBarTitle_3</a>
+					<a class="menu scrollto menu3" href="@Model.NavBarLink_4" >@Model.NavBarTitle_4</a>
+					<a class="menu_btn" href="@Model.NavBarLink_5">@Model.NavBarTitle_5</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="tophead2" id="toptop">
+		<p class="zag_tophead2">добро пожаловать<br><span>в холдинг</span></p>
+		<p class="text_tophead">с чего начинается история <br>сотрудничества и что вас ждет?</p>
+
+		<p class="text_tophead2">Пожалуйста, выберите компанию, в которой вы работаете:</p>
+		<form asp-action="FullIndex" method="post">
+			<div class="fontziz">
+				<select name="companyId" id="pet-select" asp-items="@ViewBag.Companies"></select>
+				<button type="submit" class="btn_expo">ПОДКЛЮЧИТЬСЯ И УЗНАТЬ ВСЕ СЕКРЕТЫ</button>
+			</div>
+		</form>
+	</section>
+
+	<section class="top_video" id="vidtop">
+
+	<img src="~/img/01.png" class="vid01">
+	<img src="~/img/02.png" class="vid02">
+	<img src="~/img/03.png" class="vid03">
+	<img src="~/img/04.png" class="vid04">
+
+
+	<div class="content">
+		<p class="zag_top_video">ПОСМОТРИТЕ ВИДЕО<span>и узнайте, что вас ждет на курсе</span></p>
+
+		<div class="video">
+			<!--<img src="~/img/video.png">-->
+			<div class="flipper">
+				<div class="front">
+					 <!--<video id="vid"  controls poster="~/img/video.png">
+					    <source src="~/img/vid.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+					  </video>-->
+					  <iframe id="vid" src="@Model.openingVideoPath" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+
+					  <img class="bask" src="~/img/backk.png">
+			  	</div>
+
+			  	<div class="back">
+					<a href="#test-popup0" class="open-popup-link"><img class="fontt" src="~/img/0t.png"></a>
+					<a class="scact" href="~/@Model.contactFilePath" download="Story_manager_0.pdf">Скачать информацию</a>
+					 <img class="baskd" src="~/img/baskd.png">
+			  	</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="slaid_big" id="rol">
+	<div class="content">
+		<p class="zag_sec">Карта историй</p>
+		<p class="zag_slaid">Познакомься с историями нашей команды</p>
+
+		@Model.storyMapsName_1
+		@Model.storyMapsNumber_1
+		@Model.storyMapsTittle_1
+		@Model.storyMapsSubtitle_1_1
+		@Model.storyMapsSubtitle_2_1
+		@Model.storyMapsVideoPath_1
+		@Model.storyMapsFilePath_1
+
+	</div>
+
+</section>
+
+<div class="content" id="bg_white"><p class="zag_sec2">ПЛАН АДАПТАЦИИ</p></div>
+
+<section class="otvety">
+	<div class="content">
+		<div class="bg_white">
+			<p class="wh_zag">@Model.userTaskTittle</p>
+			<p class="text_wh_bold">@Model.userTaskSubtittle</p>
+			<p class="text_wh" style="margin-bottom: 0px;">@Model.userTaskText <a href="#cont" class="scrollto">«Полезные контакты»</a></p>
+
+			<div class="flex_wh">
+				@foreach (var item in Model.userTaskItems){
+					<div><div class="ttd"><p>@item.name</p></div></div>
+				}
+			</div>
+
+			<div class="don">
+				<a href="..\..\..\@Model.userTaskFilePath" download><img src="~/img/don.png"></a>
+				<a href="..\..\..\@Model.userTaskFilePath" download><p>Скачать задачи руководителя</p></a>
+			</div>
+		</div>
+
+
+
+		<div class="white_slaider">
+			<div class="slaid">
+				@foreach (var item in Model.userTaskItems){
+					<div>
+						<p class="sla_zag">@item.tittle</p>
+
+						<div class="l_s_m_t">
+							@foreach (var parag in item.paragraphs){
+							<div class="dots">
+								<p class="dots_zag">@parag.tittle</p>
+								<p class="dots_text">@parag.subtittle</p>
+							</div>
+							<div class="donload">
+								@foreach (var file in parag.files){
+									<a href="..\..\..\@file.path" download><img src="~/img/don.png">
+									<p style="margin-top: 10px;">@file.name</p></a>
+								}
+								@foreach (var link in parag.links){
+									@link.link
+									@link.name
+									@link.icon
+								}
+							</div>
+							}
+						</div>
+					</div>
+				}
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="contact">
+	<div class="content">
+			<div class="blufon" id="cont">
+				<p class="contact_zag">ПОЛЕЗНЫЕ КОНТАКТЫ</p>
+				<div class="dovn_cont">
+						<a class="con_dol_file" href="..\..\..\@Model.contactFilePath" download style=" border: 2px solid #fff; padding: 13px 26px; border-radius: 14px;">
+							<img src="img/don2.png">
+							<p>Скачать справочник контактов</p>
+						</a>
+					</div>
+					
+				@foreach (var item in Model.contactItems){
+					<div class="slaid_contact nmg_slaid">
+							<div>
+								<div class="contact_flex">
+									<div class="box">
+										<p class="qr">@item.tittle </p>
+										<div class="dt"><p>@item.text</p></div>
+										<div class="cont_info">
+											<p class="name">@item.phoneName</p>
+											<p class="phhp">@item.phoneNumber</p>
+											<p><a href="mailto:@item.email">@item.email</a></p>
+										</div>
+									</div>
+								</div>
+							</div>
+					</div>
+				}
+			</div>
+	</div>
+	<div class="bg_fon2"></div>
+</section>

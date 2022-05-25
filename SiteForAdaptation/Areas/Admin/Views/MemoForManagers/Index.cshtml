@@ -1,0 +1,50 @@
+﻿@model MemoForManager
+
+@{
+    ViewData["Title"] = "Детали";
+}
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">@Model.Company.Name</h3>
+                </div>
+                <div class="card-body">
+                    <div class="text-muted">
+                        <label asp-for="Tittle_1" class="control-label"></label>
+                        <p class="text-sm">@Model.Tittle_1
+                            <b class="d-block">@Model.Subtittle_1</b>
+                        </p>
+                        <hr />
+                        <label asp-for="Tittle_2" class="control-label"></label>
+                        <p class="text-sm">@Model.Tittle_2
+                            <b class="d-block">@Model.Subtittle_2</b>
+                        </p>
+                        <hr />
+                        <label asp-for="Tittle_3" class="control-label"></label>
+                        <p class="text-sm">@Model.Tittle_3
+                            <b class="d-block">@Model.Subtittle_3</b>
+                        </p>
+                        <hr />
+                        <label asp-for="Tittle_4" class="control-label"></label>
+                        <p class="text-sm">@Model.Tittle_4
+                            <b class="d-block">@Model.Subtittle_4</b>
+                        </p>
+                        <hr />
+                        <label asp-for="Tittle_5" class="control-label"></label>
+                        <p class="text-sm">@Model.Tittle_5
+                            <b class="d-block">@Model.Subtittle_5</b>
+                        </p>
+                    </div>
+                </div>
+            <!-- /.card-body -->
+            </div>
+        </div>
+        <div class="col-12">
+            <a asp-action="IndexCompany" class="btn btn-secondary">Назад</a>
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-info"><i class="fas fa-pencil-alt"></i>Изменить</a>
+        </div>
+    </div>
+</div>

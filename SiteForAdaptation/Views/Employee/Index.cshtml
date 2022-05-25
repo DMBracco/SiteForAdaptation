@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "Сотрудник";
+}
+
+@section Stylesheet {
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.13.3/css/selectize.bootstrap4.min.css" integrity="sha512-MMojOrCQrqLg4Iarid2YMYyZ7pzjPeXKRvhW9nZqLo6kPBBTuvNET9DBVWptAo/Q20Fy11EIHM5ig4WlIrJfQw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.13.3/css/selectize.min.css" integrity="sha512-bkB9w//jjNUnYbUpATZQCJu2khobZXvLP5GZ8jhltg7P/dghIrTaSJ7B/zdlBUT0W/LXGZ7FfCIqNvXjWKqCYA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+}
+
+    <section class="header">
+		<div class="content">
+			<div class="menu_flex">
+				<div>
+					<img src="img/logo.png">
+				</div>
+				<div>
+					<a class="menu scrollto menu_of" href="@ViewBag.NavBar.Link_1" >@ViewBag.NavBar.Title_1</a>
+					<a class="menu scrollto menu1" href="@ViewBag.NavBar.Link_2" >@ViewBag.NavBar.Title_2</a>
+					<a class="menu scrollto menu2" href="@ViewBag.NavBar.Link_3" >@ViewBag.NavBar.Title_3</a>
+					<a class="menu scrollto menu3" href="@ViewBag.NavBar.Link_4" >@ViewBag.NavBar.Title_4</a>
+					<a class="menu_btn" href="@ViewBag.NavBar.Link_5">@ViewBag.NavBar.Title_5</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="tophead2" id="toptop">
+		<p class="zag_tophead2">добро пожаловать<br><span>в холдинг</span></p>
+		<p class="text_tophead">с чего начинается история <br>сотрудничества и что вас ждет?</p>
+
+		<p class="text_tophead2">Пожалуйста, выберите компанию, в которой вы работаете:</p>
+		<form asp-action="FullIndex" method="post">
+			<div class="fontziz">
+				<select name="companyId" id="pet-select" asp-items="@ViewBag.Companies"></select>
+				<button type="submit" class="btn_expo">ПОДКЛЮЧИТЬСЯ И УЗНАТЬ ВСЕ СЕКРЕТЫ</button>
+			</div>
+		</form>
+	</section>
+
+@section Scripts {
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.13.3/js/selectize.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script>
+		$(function () {
+			$("#pet-select").selectize();
+		});
+	</script>
+}

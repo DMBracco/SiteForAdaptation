@@ -1,0 +1,132 @@
+﻿@model IEnumerable<Opening>
+
+@{
+    ViewData["Title"] = "Начальное видео";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        @*<div class="col-6">
+            <div class="card card-primary collapsed-card">
+            <div class="card-header">
+              <h3 class="card-title">Изображение</h3>
+
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                  <i class="fas fa-minus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="card-body">
+            @foreach (var opening in Model)
+            {
+                <div class="card card-light card-outline">
+                  <div class="card-header">
+                    <h5 class="card-title">@opening.UserType?.Tittle</h5>
+                  </div>
+                  @if(null != @opening.ImageName){
+                      <div class="card-header">
+                        <h5 class="card-title">Название сохраненного - @opening.ImageName</h5>
+                        <div class="card-tools">
+                          <a href="..\..\@opening.ImagePath" class="btn btn-info" target="_blank"><i class="fas fa-eye"></i></a>
+                        </div>
+                      </div>
+                  }
+                  <div class="card-body">
+                    <form asp-action="UploadImg" method="post" enctype="multipart/form-data">
+                        <input name="userTypeId" value="@opening.UserTypeId" hidden/>
+
+                        <input type="file" accept="image/png, image/jpeg" name="uploadedImg" />
+                        <input class="btn btn-primary" type="submit" value="Загрузить" />
+                    </form>
+                  </div>
+                </div>
+                <hr>
+            }
+            </div>
+            <!-- /.card-body -->
+          </div>
+        </div>*@
+
+        <div class="col-6">
+            <div class="card card-danger">
+            <div class="card-header">
+              <h3 class="card-title">Файл</h3>
+
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                  <i class="fas fa-minus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="card-body">
+              @foreach (var opening in Model)
+                {
+                    <div class="card card-light card-outline">
+                      <div class="card-header">
+                        <h5 class="card-title">@opening.UserType?.Tittle</h5>
+                      </div>
+                      <div class="card-body">
+                        @if(null != @opening.FilePath){
+                        <div class="form-group">
+                            <label for="inputVideoPath">Ссылка</label>
+                            <input type="text" id="inputVideoPath" name="inputVideoPath" class="form-control" value="@opening.FilePath">
+                        </div>
+                        }
+                        <form asp-action="UploadFile" method="post" enctype="multipart/form-data">
+                            <input name="userTypeId" value="@opening.UserTypeId" hidden/>
+
+                            <input type="file" accept=".pdf" name="uploadFile" />
+                            <input class="btn btn-primary" type="submit" value="Загрузить" />
+                        </form>
+                      </div>
+                    </div>
+                    <hr>
+                }
+            </div>
+            <!-- /.card-body -->
+          </div>
+        </div>
+
+        <div class="col-6">
+            <div class="card card-warning">
+            <div class="card-header">
+              <h3 class="card-title">Видео</h3>
+
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                  <i class="fas fa-minus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="card-body">
+                @foreach (var opening in Model)
+                {
+                    <div class="card card-light card-outline">
+                        <form asp-action="AddVideo" method="post" enctype="multipart/form-data">
+                        <input name="userTypeId" value="@opening.UserTypeId" hidden/>
+                          <div class="card-header">
+                            <h5 class="card-title">@opening.UserType?.Tittle</h5>
+                          </div>
+                          <div class="card-body">
+                            <div class="form-group">
+                                <label for="inputVideoPath">Ссылка</label>
+                                <input type="text" id="inputVideoPath" name="inputVideoPath" class="form-control" value="@opening.VideoPath">
+                            </div>
+                            <div class="d-flex justify-content-around">
+                                <input class="btn btn-primary" type="submit" value="Сохранить" />
+                                @if(null != opening.VideoPath){
+                                    <a href="@opening.VideoPath" class="btn btn-info" target="_blank"><i class="fas fa-eye"></i></a>
+                                }
+                            </div>
+                          </div>
+                        </form>
+                    </div>
+                    <hr>
+                }
+            </div>
+            <!-- /.card-body -->
+          </div>
+        </div>
+    </div>
+</div>

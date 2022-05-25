@@ -1,0 +1,79 @@
+﻿@model SiteForAdaptation.Data.Entities.MemoForManager
+
+@{
+    ViewData["Title"] = "Изменение";
+}
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <section class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">@Model.Company.Name</h3>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Edit">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="Id" />
+                        <input type="hidden" asp-for="CompanyId" />
+                        <div class="form-group">
+                            <label asp-for="Tittle_1" class="control-label"></label>
+                            <input asp-for="Tittle_1" class="form-control" />
+                            <span asp-validation-for="Tittle_1" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Subtittle_1" class="control-label"></label>
+                            <textarea asp-for="Subtittle_1" class="form-control" ></textarea>
+                            <span asp-validation-for="Subtittle_1" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Tittle_2" class="control-label"></label>
+                            <input asp-for="Tittle_2" class="form-control" />
+                            <span asp-validation-for="Tittle_2" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Subtittle_2" class="control-label"></label>
+                            <textarea asp-for="Subtittle_2" class="form-control" ></textarea>
+                            <span asp-validation-for="Subtittle_2" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Tittle_3" class="control-label"></label>
+                            <input asp-for="Tittle_3" class="form-control" />
+                            <span asp-validation-for="Tittle_3" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Subtittle_3" class="control-label"></label>
+                            <textarea asp-for="Subtittle_3" class="form-control" ></textarea>
+                            <span asp-validation-for="Subtittle_3" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Tittle_4" class="control-label"></label>
+                            <input asp-for="Tittle_4" class="form-control" />
+                            <span asp-validation-for="Tittle_4" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Subtittle_4" class="control-label"></label>
+                            <textarea asp-for="Subtittle_4" class="form-control" ></textarea>
+                            <span asp-validation-for="Subtittle_4" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Tittle_5" class="control-label"></label>
+                            <input asp-for="Tittle_5" class="form-control" />
+                            <span asp-validation-for="Tittle_5" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Subtittle_5" class="control-label"></label>
+                            <textarea asp-for="Subtittle_5" class="form-control" ></textarea>
+                            <span asp-validation-for="Subtittle_5" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Добавить" class="btn btn-primary" />
+                            <a asp-action="Index" asp-route-companyId="@Model.CompanyId" class="btn btn-secondary">Назад</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+

@@ -1,0 +1,33 @@
+﻿@model CompanyViewModel
+@{
+    
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <section class="col-6 edit-product">
+            <div class="card card-solid">
+                <form asp-action="Edit" method="post">
+                    <div class="card-body">
+                        <input type="hidden" asp-for="Id" />
+                        <div class="form-group">
+                            <label>Имя</label>
+                            <div><span asp-validation-for="Name" class="text-danger"></span></div>
+                            <input asp-for="Name" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <div class="custom-control custom-checkbox">
+                              <input asp-for="IsHide" class="custom-control-input custom-control-input-danger custom-control-input-outline" type="checkbox" id="customCheckbox5" />
+                              <label for="customCheckbox5" class="custom-control-label">Скрыть</label>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <button class="btn btn-primary" type="submit">Сохранить</button>
+                            <a asp-action="Index" class="btn btn-secondary">Назад</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+</div>

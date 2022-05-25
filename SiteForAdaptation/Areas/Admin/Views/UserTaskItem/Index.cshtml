@@ -1,0 +1,54 @@
+﻿@model IEnumerable<UserTaskItem>
+
+@{
+    ViewData["Title"] = $"Пункты задач - {@ViewBag.UserTask.Tittle}";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-6 my-2">
+            <a asp-action="Index" asp-controller="UserTasks" asp-route-companyId="@ViewBag.UserTask.CompanyId" class="btn btn-secondary"><i class="fas fa-arrow-left"></i>Назад</a>
+            <a asp-action="Create" asp-route-userTaskId="@ViewBag.UserTask.Id" class="btn btn-primary"><i class="fas fa-edit"></i>Добавить пункт</a>
+        </div>
+        <div class="col-12">
+            <table class="table table-striped table-bordered table-sm">
+                <thead>
+                    <tr>
+                        <th style="width: 20%">
+                            @Html.DisplayNameFor(model => model.Name)
+                        </th>
+                        <th style="width: 30%">
+                            @Html.DisplayNameFor(model => model.Tittle)
+                        </th>
+                        <th style="width: 30%">
+                            @Html.DisplayNameFor(model => model.UserTask)
+                        </th>
+                        <th style="width: 20%"></th>
+                    </tr>
+                </thead>
+                <tbody>
+            @foreach (var item in Model) {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Tittle)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UserTask.Tittle)
+                        </td>
+                        <td class="text-center">
+                            <form asp-action="Delete" method="post">
+                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-info btn-sm m-2"><i class="fas fa-pencil-alt"></i>Изменить</a>
+                                <input type="hidden" name="deletedId" value="@item.Id" />
+                                <button class="btn btn-danger btn-sm m-2"><i class="fas fa-trash"></i>Удалить</button>
+                            </form>
+                        </td>
+                    </tr>
+            }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

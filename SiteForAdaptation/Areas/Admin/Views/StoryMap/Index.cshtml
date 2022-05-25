@@ -1,0 +1,66 @@
+﻿@model IEnumerable<StoryMap>
+
+@{
+    ViewData["Title"] = "Карта историй";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="card card-secondary">
+                <div class="card-header">
+                    <h3 class="card-title">Таблица</h3>
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                        <i class="fas fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    @if(Model.Count() <= 20)
+                    {
+                        <div class="m-2">
+                            <a asp-action="Create" class="btn btn-primary"><i class="fas fa-edit"></i>Добавить</a>
+                        </div>
+                    }
+                    <div class="card-body p-0">
+                        <table class="table table-striped table-bordered table-sm">
+                            <tr>
+                                <th class="text-right">ID</th>
+                                <th>Name</th>
+                                <th>Number</th>
+                                <th>UserType</th>
+                                <th>FileName</th>
+                                <th></th>
+                            </tr>
+                            @foreach (var item in Model) {
+                                <tr>
+                                    <td class="text-right">@item.Id</td>
+                                    <td>@item.Name</td>
+                                    <td>@item.Number</td>
+                                    <td>@item.UserType.Tittle</td>
+                                    <td>@item.FileName</td>
+                                    <td class="text-center">
+                                        <form asp-action="Delete" method="post">
+                                            <a asp-action="Edit" class="btn btn-info btn-sm"
+                                                asp-route-editId="@item.Id"> <i class="fas fa-pencil-alt"></i>
+                                                Изменить
+                                            </a>
+                                            <input type="hidden" name="deletedId" value="@item.Id" />
+                                            <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i>
+                                                Удалить
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            }
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    
+</div>

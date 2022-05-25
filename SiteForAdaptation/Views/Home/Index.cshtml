@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Выбери кто ты?";
+}
+
+<section class="header2">
+	<div class="content">
+		<div class="menu_flex">
+			<div>
+				<img src="~/img/logb.png">
+			</div>
+			<div>
+				<a class="menu_btn" href="#">ВЕРНУТЬСЯ НА ПОРТАЛ НМГ</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="tophead3">
+	<div class="content">
+		<p class="zag_tophead3">с чего начинается<br><span>история сотрудника</span></p>
+
+		<div class="vibor">
+			<div class="vib_l">
+				<p>Я РУКОВОДИТЕЛЬ<br>И МНЕ ПРЕДСТОИТ ПОДДЕРЖАТЬ<br>НОВОГО СОТРУДНИКА</p>
+				<a asp-action="Index" asp-controller="Manager">НАЧАТЬ</a>
+			</div>
+			<div  class="vib_r">
+				<p>Я НОВЫЙ СОТРУДНИК<br>И МНЕ ПРЕДСТОИТ ПРОЙТИ<br>ПРОЦЕСС АДАПТАЦИИ</p>
+				<a asp-action="Index" asp-controller="Employee">НАЧАТЬ</a>
+			</div>
+		</div>
+	</div>
+</section>

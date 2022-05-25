@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Company>
+
+@{
+    ViewData["Title"] = "Блок руководителя";
+}
+
+<div class="container pb-3">
+    <section class="content">
+
+      <!-- Default box -->
+      <div class="card card-info">
+        <div class="card-header">
+          <h3 class="card-title">Компании</h3>
+
+          <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+              <i class="fas fa-minus"></i>
+            </button>
+          </div>
+        </div>
+        <div class="card-body p-0" style="display: block;">
+          <table class="table table-striped projects">
+              <thead>
+                  
+              </thead>
+              <tbody>
+                  @foreach (var company in Model){
+                <tr>
+                    <td>
+                          @company.Name
+                    </td>
+                    <td class="project-actions text-right">
+                        <a class="btn btn-primary btn-sm" asp-action="Index" asp-route-companyId="@company.Id">
+                            <i class="fas fa-folder">
+                            </i>
+                            Посмотреть
+                        </a>
+                    </td>
+                </tr>
+                  }
+              </tbody>
+          </table>
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+
+    </section>
+</div>

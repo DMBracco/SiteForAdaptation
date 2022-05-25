@@ -1,0 +1,177 @@
+﻿@using SiteForAdaptation.Services
+@model UserTaskParagraph
+
+@{
+    var getHostName = BaseService.GetHostName();
+}
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <section class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">@Model.UserTaskItem.Name</h3>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Edit">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="Id" />
+                        <input type="hidden" asp-for="UserTaskItemId" />
+                        <div class="form-group">
+                            <label asp-for="Tittle" class="control-label"></label>
+                            <input asp-for="Tittle" class="form-control" />
+                            <span asp-validation-for="Tittle" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Subtittle" class="control-label"></label>
+                            <textarea asp-for="Subtittle" class="form-control" rows="4"></textarea>
+                            <span asp-validation-for="Subtittle" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Добавить" class="btn btn-primary" />
+                            <a asp-controller="UserTaskItem" asp-action="Edit" asp-route-id="@Model.UserTaskItemId" class="btn btn-secondary">Назад</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <div class="col-md-6">
+            <div class="card card-primary">
+            <div class="card-header">
+              <h3 class="card-title">Файл</h3>
+
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                  <i class="fas fa-minus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="card-body">
+
+                @if(0 != @Model.Id){
+                     @foreach (var file in Model.UserTaskFiles){
+                        <div class="d-flex m-2">
+                            <form asp-action="DeleteFile" method="post">
+                                <input type="hidden" name="deletedId" value="@file.Id" />
+                                @file.Name
+                                <div class="btn-group btn-group-sm">
+                                    <a href="//@getHostName/@file.Path" target="_blank" class="btn btn-info btn-sm"><i class="fas fa-eye"></i></a>
+                                    <button class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
+                                </div>
+                            </form>
+                        </div>
+                    }
+                    <form asp-action="UploadFile" method="post" enctype="multipart/form-data">
+                        <input name="paragraphId" value="@Model.Id" hidden/>
+
+                        <input type="file" accept=".pdf" name="uploadFile" />
+                        <input class="btn btn-primary" type="submit" value="Загрузить"/>
+                    </form>
+                } else {
+                    <h3 class="card-title">Надо сохраннить запись</h3>
+                }
+                
+            </div>
+            <!-- /.card-body -->
+          </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card card-danger">
+            <div class="card-header">
+              <h3 class="card-title">Ссылки</h3>
+
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                  <i class="fas fa-minus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="card-body">
+
+                @if(0 != @Model.Id){
+                    <table class="table table-striped projects">
+                      <thead>
+                          <tr>
+                              <th style="width: 25%">
+                                  Name
+                              </th>
+                              <th style="width: 30%">
+                                  Link
+                              </th>
+                              <th style="width: 25%">
+                                  Icon
+                              </th>
+                              <th style="width: 20%">
+                              </th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          @foreach(var item in Model.UserTaskLinks){
+                        <tr>
+                            <form asp-action="CreateLink">
+                                <input type="hidden" name="item.Id" value="@item.Id" />
+                                <input type="hidden" name="item.UserTaskParagraphId" value="@item.UserTaskParagraphId" />
+                                <td>
+                                    <input type="text" class="form-control" asp-for="@item.Name" />
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" asp-for="@item.Link" />
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" asp-for="@item.Icon" />
+                                </td>
+                                <td class="btn-group btn-group-sm">
+                                    <button type="submit" class="btn btn-info btn-sm" > <i class="fas fa-pencil-alt"></i>
+                                    </button>
+                                    <label for="userTasksDeleted-@item.Id" class="btn btn-danger btn-sm m-0"><i class="fas fa-trash"></i>
+                                    </label>
+                                </td>
+                            </form>
+                            <form asp-action="DeleteLink" method="post">
+                                <input name="deletedId" value="@item.Id" hidden/>
+                                <input type="submit" id="userTasksDeleted-@item.Id" hidden/>
+                            </form>
+                        </tr>
+                          }
+                        <tr>
+                            <form asp-action="CreateLink" method="post">
+                                <input type="hidden" name="UserTaskParagraphId" value="@Model.Id" class="form-control" />
+                                <td>
+                                    <input type="text" class="form-control" name="Name">
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" name="Link">
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" name="Icon">
+                                </td>
+                                <td class="text-center">
+                                    <button class="btn btn-primary btn-sm" type="submit"><i class="fas fa-edit"></i>
+                                        Добавить</button>
+                                </td>
+                            </form>
+                        </tr>
+                      </tbody>
+                  </table>
+                } else {
+                    <h3 class="card-title">Надо сохраннить запись</h3>
+                }
+                
+            </div>
+            <!-- /.card-body -->
+          </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/lib/summernote/summernote-bs4.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            $('#Subtittle').summernote();
+        });
+    </script>
+}

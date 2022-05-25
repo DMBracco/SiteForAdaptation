@@ -1,0 +1,58 @@
+﻿@model ContactItem
+
+
+<div class="row justify-content-center">
+    <div class="col-md-4">
+        <div class="card card-solid">
+            <form asp-action="EditContactItem">
+                <div class="card-body">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input asp-for="Id" class="form-control" hidden/>
+                    <input name="ContactId" value="@ViewBag.ContactId" class="form-control" hidden/>
+                    <div class="form-group">
+                        <label asp-for="Tittle" class="control-label"></label>
+                        <input asp-for="Tittle" class="form-control" />
+                        <span asp-validation-for="Tittle" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Text" class="control-label"></label>
+                        <textarea id="Text" name="Text">@Model.Text</textarea>
+                        <span asp-validation-for="Text" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PhoneName" class="control-label"></label>
+                        <input asp-for="PhoneName" class="form-control" />
+                        <span asp-validation-for="PhoneName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PhoneNumber" class="control-label"></label>
+                        <input asp-for="PhoneNumber" class="form-control" />
+                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Email" class="control-label"></label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="UserTypeId" class="control-label"></label>
+                        <select class="form-control custom-select" name="UserTypeId" asp-items="ViewBag.UserTypes"></select>
+                        <span asp-validation-for="UserTypeId" class="text-danger"></span>
+                    </div>
+                    <div class="text-center">
+                        <button class="btn btn-primary" type="submit">Сохранить</button>
+                        <a asp-action="Index" class="btn btn-secondary">Назад</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+          $('#Text').summernote();
+        });
+    </script>
+}

@@ -1,0 +1,199 @@
+﻿@model StoryMap
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <form asp-action="Edit">
+                <div class="card-body">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input asp-for="Id" class="form-control" hidden/>
+                    @*<input asp-for="ImageName" class="form-control" hidden/>
+                    <input asp-for="ImagePath" class="form-control" hidden/>*@
+                    <input asp-for="FileName" class="form-control" hidden/>
+                    <input asp-for="FilePath" class="form-control" hidden/>
+                    <div class="form-group">
+                        <label asp-for="Name" class="control-label"></label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Number" class="control-label"></label>
+                        <input asp-for="Number" class="form-control" />
+                        <span asp-validation-for="Number" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Tittle" class="control-label"></label>
+                        <input asp-for="Tittle" class="form-control" />
+                        <span asp-validation-for="Tittle" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Subtitle_1" class="control-label"></label>
+                        <input asp-for="Subtitle_1" class="form-control" />
+                        <span asp-validation-for="Subtitle_1" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Subtitle_2" class="control-label"></label>
+                        <input asp-for="Subtitle_2" class="form-control" />
+                        <span asp-validation-for="Subtitle_2" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="VideoPath" class="control-label"></label>
+                        <input asp-for="VideoPath" class="form-control" />
+                        <span asp-validation-for="VideoPath" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="UserTypeId" class="control-label"></label>
+                        <select class="form-control" asp-for="UserTypeId" asp-items="@ViewBag.SelectListUserType"></select>
+                        <span asp-validation-for="UserTypeId" class="text-danger"></span>
+                    </div>
+                    <div class="text-center">
+                        <button class="btn btn-primary" type="submit">Сохранить</button>
+                        <a asp-action="Index" class="btn btn-secondary">Назад</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        @*<div class="col-md-4">
+            <div class="card card-primary">
+            <div class="card-header">
+              <h3 class="card-title">Изображение</h3>
+
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                  <i class="fas fa-minus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="card-body">
+                @if(0 != @Model.Id){
+                    if(null != @Model.ImageName){
+                        <div class="form-group d-flex justify-content-between">
+                        <h5 class="card-title">Название сохраненного - @Model.ImageName</h5>
+                        <div class="card-tools">
+                            <a href="..\..\@Model.ImagePath" class="btn btn-info" target="_blank"><i class="fas fa-eye"></i></a>
+                        </div>
+                        </div>
+                    }
+                    <div class="form-group">
+                        <form asp-action="UploadImg" method="post" enctype="multipart/form-data">
+                            <input name="storyMapId" value="@Model.Id" hidden/>
+
+                            <input type="file" accept="image/png, image/jpeg" name="uploadedImg" />
+                            <input class="btn btn-primary" type="submit" value="Загрузить" />
+                        </form>
+                    </div>
+                } else {
+                    <h3 class="card-title">Надо сохраннить запись</h3>
+                }
+                
+            </div>
+            <!-- /.card-body -->
+          </div>
+        </div>*@
+
+        <div class="col-md-4">
+            <div class="card card-danger">
+            <div class="card-header">
+              <h3 class="card-title">Файл</h3>
+
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                  <i class="fas fa-minus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="card-body">
+                @if(0 != @Model.Id) {
+                    if(null != @Model.FileName){
+                        <div class="form-group d-flex justify-content-between">
+                        <h5 class="card-title">Название сохраненного - @Model.FileName</h5>
+                        <div class="card-tools">
+                            <a href="..\..\@Model.FilePath" class="btn btn-info" target="_blank"><i class="fas fa-eye"></i></a>
+                        </div>
+                        </div>
+                    }
+                    <div class="form-group">
+                        <form asp-action="UploadFile" method="post" enctype="multipart/form-data">
+                            <input name="storyMapId" value="@Model.Id" hidden/>
+
+                            <input type="file" accept=".pdf" name="uploadFile" />
+                            <input class="btn btn-primary" type="submit" value="Загрузить" />
+                        </form>
+                    </div>
+                } else {
+                    <h3 class="card-title">Надо сохраннить запись</h3>
+                }
+            </div>
+            <!-- /.card-body -->
+          </div>
+        </div>
+        
+        @*<div class="col-md-4">
+            <div class="card card-success">
+            <div class="card-header">
+              <h3 class="card-title">Пункты истории</h3>
+
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                  <i class="fas fa-minus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="card-body">
+                @if(0 != @Model.Id) {
+                    <table class="table table-striped table-bordered table-sm">
+                        <tr>
+                            <th class="text-right">ID</th>
+                            <th>Название</th>
+                            <th>Действия</th>
+                        </tr>
+                        @foreach (var item in Model.StoryItems) {
+                            <tr>
+                                <form asp-action="CreateItem" method="post">
+                                    <input name="StoryMapId" value="@Model.Id" class="form-control" hidden/>
+                                    <input name="Id" value="@item.Id" hidden/>
+                                    <td class="text-right">@item.Id</td>
+                                    <td>
+                                        <input class="form-control" type="text" name="Tittle" value="@item.Tittle">
+                                    </td>
+                                    <td class="text-center">
+                                        <button type="submit" class="btn btn-info btn-sm"> <i class="fas fa-pencil-alt"></i>
+                                            Изменить
+                                        </button>
+                                        <label for="storyItemsDeleted-@item.Id" class="btn btn-danger btn-sm m-0"><i class="fas fa-trash"></i>
+                                            Удалить
+                                        </label>
+                                    </td>
+                                </form>
+                                <form asp-action="DeleteItem" method="post">
+                                    <input name="deletedId" value="@item.Id" hidden/>
+                                    <input type="submit" id="storyItemsDeleted-@item.Id" hidden/>
+                                </form>
+                            </tr>
+                        }
+                        <tr>
+                            <form asp-action="CreateItem" method="post">
+                                <input name="StoryMapId" value="@Model.Id" class="form-control" hidden/>
+                                <td class="text-right"></td>
+                                <td>
+                                    <input class="form-control" type="text" name="Tittle">
+                                </td>
+                                <td class="text-center">
+                                    <button type="submit" class="btn btn-primary btn-sm"> <i class="fas fa-edit"></i>
+                                        Добавить
+                                    </button>
+                                </td>
+                            </form>
+                        </tr>
+                    </table>
+                } else {
+                    <h3 class="card-title">Надо сохраннить запись</h3>
+                }
+            </div>
+            <!-- /.card-body -->
+          </div>
+        </div>*@
+
+    </div>
+</div>

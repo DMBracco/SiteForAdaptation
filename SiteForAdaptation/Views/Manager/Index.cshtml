@@ -1,0 +1,50 @@
+﻿
+
+@{
+    ViewData["Title"] = "Руководитель";
+}
+
+@section Stylesheet {
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.13.3/css/selectize.bootstrap4.min.css" integrity="sha512-MMojOrCQrqLg4Iarid2YMYyZ7pzjPeXKRvhW9nZqLo6kPBBTuvNET9DBVWptAo/Q20Fy11EIHM5ig4WlIrJfQw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.13.3/css/selectize.min.css" integrity="sha512-bkB9w//jjNUnYbUpATZQCJu2khobZXvLP5GZ8jhltg7P/dghIrTaSJ7B/zdlBUT0W/LXGZ7FfCIqNvXjWKqCYA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+}
+
+    <section class="header">
+		<div class="content">
+			<div class="menu_flex">
+				<div>
+					<img src="~/img/logo.png">
+				</div>
+				<div>
+					<a class="menu scrollto menu_of" href="#toptop" >Выбрать компанию</a>
+					<a class="menu scrollto menu1" >Карта историй</a>
+					<a class="menu scrollto menu2" >Задачи руководителя</a>
+					<a class="menu scrollto menu3" >Полезные контакты</a>
+					<a class="menu_btn" href="#">Вернуться на портал НМГ</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="tophead2" id="toptop">
+		<p class="zag_tophead2">секреты успешной<br><span>адаптации</span></p>
+		<p class="text_tophead">роль и задачи руководителя</p>
+
+		<p class="text_tophead2">Пожалуйста, выберите компанию, в которой вы работаете:</p>
+		<form asp-action="FullIndex" method="post">
+			<div class="fontziz">
+				<select name="companyId" id="pet-select" asp-items="@ViewBag.Companies"></select>
+				<button type="submit" class="btn_expo">ПОДКЛЮЧИТЬСЯ И УЗНАТЬ ВСЕ СЕКРЕТЫ</button>
+			</div>
+		</form>
+	</section>
+
+@section Scripts {
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.13.3/js/selectize.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script>
+		$(function () {
+			$("#pet-select").selectize();
+		});
+	</script>
+}

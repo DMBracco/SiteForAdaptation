@@ -1,0 +1,75 @@
+﻿@model SiteForAdaptation.Data.Entities.NavBar
+
+<div class="container">
+    <div class="row justify-content-center">
+        <section class="col-6 edit-product">
+            <div class="card card-solid">
+                <form asp-action="Edit" method="post">
+                    <div class="card-body">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="Id" />
+                        <div class="form-group">
+                            <label asp-for="Title_1" class="control-label"></label>
+                            <input asp-for="Title_1" class="form-control" />
+                            <span asp-validation-for="Title_1" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Link_1" class="control-label"></label>
+                            <input asp-for="Link_1" class="form-control" />
+                            <span asp-validation-for="Link_1" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Title_2" class="control-label"></label>
+                            <input asp-for="Title_2" class="form-control" />
+                            <span asp-validation-for="Title_2" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Link_2" class="control-label"></label>
+                            <input asp-for="Link_2" class="form-control" />
+                            <span asp-validation-for="Link_2" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Title_3" class="control-label"></label>
+                            <input asp-for="Title_3" class="form-control" />
+                            <span asp-validation-for="Title_3" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Link_3" class="control-label"></label>
+                            <input asp-for="Link_3" class="form-control" />
+                            <span asp-validation-for="Link_3" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Title_4" class="control-label"></label>
+                            <input asp-for="Title_4" class="form-control" />
+                            <span asp-validation-for="Title_4" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Link_4" class="control-label"></label>
+                            <input asp-for="Link_4" class="form-control" />
+                            <span asp-validation-for="Link_4" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Title_5" class="control-label"></label>
+                            <input asp-for="Title_5" class="form-control" />
+                            <span asp-validation-for="Title_5" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Link_5" class="control-label"></label>
+                            <input asp-for="Link_5" class="form-control" />
+                            <span asp-validation-for="Link_5" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="UserTypeTittle" class="control-label"></label>
+                            <input asp-for="UserTypeTittle" class="form-control" />
+                            <span asp-validation-for="UserTypeTittle" class="text-danger"></span>
+                        </div>
+                        <div class="text-center">
+                            <button class="btn btn-primary" type="submit">Сохранить</button>
+                            <a asp-action="Index" class="btn btn-secondary">Назад</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+</div>
