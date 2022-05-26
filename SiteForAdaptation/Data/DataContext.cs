@@ -5,6 +5,8 @@ namespace SiteForAdaptation.Data
 {
     public class DataContext : DbContext
     {
+        internal object userStatistics;
+
         public DataContext(DbContextOptions<DataContext> options)
             : base(options) { }
 

@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SiteForAdaptation.Data;
+using SiteForAdaptation.Models;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace SiteForAdaptation.Areas.Admin.Controllers
@@ -20,6 +22,43 @@ namespace SiteForAdaptation.Areas.Admin.Controllers
             return View();
         }
 
+        public IActionResult UserStatistics()
+        {
+            var userStatisticslist = new List<UserStatisticsViewModel>();
+
+            var userStatistics = _context.UserStatistics.OrderBy(d => d.CreatedDate);
+            //var distinctUsers = userStatistics.GroupBy(x => x.UserEmail).Select(y => y.First());
+            var todayDate = DateTime.Now.Date;
+
+            foreach (var distinctUser in userStatistics)
+            {
+                var userStatisticsView = new UserStatisticsViewModel();
+
+                userStatisticsView.UserType = distinctUser.UserType;
+                userStatisticsView.UserEmail = distinctUser.UserEmail;
+                userStatisticsView.CompanyName = distinctUser.CompanyName;
+
+                if ((todayDate - distinctUser.CreatedDate).TotalDays > 15)
+                {
+                    userStatisticsView.Status = "прошедший";
+                    userStatisticsView.StatusTextColor = "text-success";
+                }
+                else if ((todayDate - distinctUser.CreatedDate).TotalDays > 4)
+                {
+                    userStatisticsView.Status = "продолжающий";
+                    userStatisticsView.StatusTextColor = "text-warning";
+                }
+                else
+                {
+                    userStatisticsView.Status = "начинающий";
+                    userStatisticsView.StatusTextColor = "text-danger";
+                }
+                userStatisticslist.Add(userStatisticsView);
+            }
+
+            return View(userStatisticslist);
+        }
+
         public JsonResult GetEmployeeStatics([FromBody] DateViewModel date)
         {
             var userStatistics = _context.UserStatistics;
@@ -35,7 +74,6 @@ namespace SiteForAdaptation.Areas.Admin.Controllers
                 .Where(m => m.UserType == "Сотрудник" && m.CreatedDate >= date.dateStart && m.CreatedDate <= date.dateEnd)
                 .GroupBy(p => p.CreatedDate)
                 .Select(g => new { Name = g.Key, Count = g.Count() })
-                //.OrderByDescending(x => x.Name)
                 ;
 
             return Json(employeeStatics);

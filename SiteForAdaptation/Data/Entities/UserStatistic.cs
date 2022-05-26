@@ -9,6 +9,7 @@ namespace SiteForAdaptation.Data.Entities
         public string SessionId { get; set; }
         public string UserType { get; set; }
         public string UserId { get; set; }
+        public string UserEmail { get; set; }
         public string CompanyName { get; set; }
 
         [DataType(DataType.Date)]

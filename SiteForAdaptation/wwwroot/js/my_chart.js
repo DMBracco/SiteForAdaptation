@@ -62,6 +62,7 @@ function GetEmployeeStatics() {
             .then((data) => {
                 console.log('Успех:', data);
                 ChartEmployee(data);
+                ChartBeginners(data); //////////////////////////////////sdfvcdsvcd
             });
     } catch (error) {
         console.error('Ошибка:', error);
@@ -127,6 +128,7 @@ function GetManagerStatics() {
             .then((data) => {
                 console.log('Успех:', data);
                 ChartManager(data);
+                chartContinuing(data);
             });
     } catch (error) {
         console.error('Ошибка:', error);
@@ -192,6 +194,7 @@ function GetUserStatics() {
             .then((data) => {
                 console.log('Успех:', data);
                 ChartUsers(data);
+                chartPast(data);
                 ChartVisits(data);
             });
     } catch (error) {
@@ -346,6 +349,105 @@ function ChartVisits(data) {
     var ctx = document.getElementById("chartVisits");
 
     const myChartEmployee = new Chart(ctx, config);
+}
+
+// #endregion
+
+// #region chartBeginners
+
+function ChartBeginners(data) {
+    let labelArray = [];
+    let dataArray = [];
+
+    data.forEach(element => {
+        labelArray.push(element.name.split('T')[0])
+        dataArray.push(element.count)
+    });
+
+    var newDiv = document.getElementById("myChartBeginnersDiv");
+    newDiv.innerHTML = '<canvas id="myChartBeginners"></canvas>';
+
+    var ctx = document.getElementById("myChartBeginners");
+
+    myChartBeginners = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labelArray,
+            datasets: [{
+                label: 'Пользователи',
+                backgroundColor: '#efefef',
+                borderColor: '#efefef',
+                data: dataArray,
+            }]
+        },
+        options: {}
+    });
+}
+
+// #endregion
+
+// #region chartContinuing
+
+function chartContinuing(data) {
+    let labelArray = [];
+    let dataArray = [];
+
+    data.forEach(element => {
+        labelArray.push(element.name.split('T')[0])
+        dataArray.push(element.count)
+    });
+
+    var newDiv = document.getElementById("myChartContinuingDiv");
+    newDiv.innerHTML = '<canvas id="myChartContinuing"></canvas>';
+
+    var ctx = document.getElementById("myChartContinuing");
+
+    myChartContinuing = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labelArray,
+            datasets: [{
+                label: 'Пользователи',
+                backgroundColor: '#efefef',
+                borderColor: '#efefef',
+                data: dataArray,
+            }]
+        },
+        options: {}
+    });
+}
+
+// #endregion
+
+// #region chartPast
+
+function chartPast(data) {
+    let labelArray = [];
+    let dataArray = [];
+
+    data.forEach(element => {
+        labelArray.push(element.name.split('T')[0])
+        dataArray.push(element.count)
+    });
+
+    var newDiv = document.getElementById("myChartPastDiv");
+    newDiv.innerHTML = '<canvas id="myChartPast"></canvas>';
+
+    var ctx = document.getElementById("myChartPast");
+
+    myChartPast = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labelArray,
+            datasets: [{
+                label: 'Пользователи',
+                backgroundColor: '#efefef',
+                borderColor: '#efefef',
+                data: dataArray,
+            }]
+        },
+        options: {}
+    });
 }
 
 // #endregion

@@ -277,6 +277,9 @@ namespace SiteForAdaptation.Controllers
             string sessionId = HttpContext.Session.Id;
             var todayDate = DateTime.Now.Date;
 
+            Random random = new Random();
+            var newEmail = string.Format("qa{0:0000}@test.com", random.Next(10000));
+
             if (string.IsNullOrEmpty(HttpContext.Session.GetString("UserType")))
             {
                 HttpContext.Session.SetString("UserType", userTypesTittle);
@@ -289,6 +292,7 @@ namespace SiteForAdaptation.Controllers
                 {
                     SessionId = sessionId,
                     UserType = userTypesTittle,
+                    UserEmail = newEmail,
                     CompanyName = data.Name,
                     CreatedDate = todayDate,
                 };
